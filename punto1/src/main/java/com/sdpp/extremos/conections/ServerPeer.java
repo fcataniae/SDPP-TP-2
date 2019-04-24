@@ -28,7 +28,7 @@ public class ServerPeer extends Thread{
                 Socket client = ss.accept();
                 System.out.println("Cliente conectado desde: "+client.getInetAddress().getCanonicalHostName()+" : "+client.getPort());
 
-                ThreadServer ts = new ThreadServer(client, id, "C:\\Users\\Franco\\Desktop\\MemoTest\\MemoTest");
+                ThreadServer ts = new ThreadServer(client, id);
                 Thread tsThread = new Thread (ts);
                 tsThread.start();
                 id++;

@@ -16,12 +16,10 @@ public class ThreadServer implements Runnable{
 
     private Socket client;
     private int idSession;
-    private String sharedFolder;
 
-    public ThreadServer (Socket client, int id, String sharedFolder) {
+    public ThreadServer (Socket client, int id) {
         this.idSession = id;
         this.client = client;
-        this.sharedFolder = sharedFolder;
     }
 
     public void run() {
@@ -57,12 +55,7 @@ public class ThreadServer implements Runnable{
 
     private void returnFilesSharedList() throws IOException {
 
-        List<String> fileNameList = new ArrayList<>();
-        Files.walk(Paths.get(this.sharedFolder)).forEach(ruta-> {
-            if (Files.isRegularFile(ruta)) {
-                fileNameList.add(ruta.getFileName().toString());
-            }
-        });
+
     }
 
     private void returnDownloadableFile() {
