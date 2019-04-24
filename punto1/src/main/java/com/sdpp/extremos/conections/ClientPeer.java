@@ -3,7 +3,9 @@ package com.sdpp.extremos.conections;
 
 import com.sdpp.utils.Consulta;
 import com.sdpp.utils.WrapperList;
+import com.sdpp.utils.WrapperMap;
 import com.sdpp.utils.enums.Method;
+import com.sdpp.utils.model.Host;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -63,13 +65,34 @@ public class ClientPeer extends Thread {
 
             inputChannel = new ObjectInputStream(ss.getInputStream());
 
-            
+            WrapperMap wpm = (WrapperMap) inputChannel.readObject();
 
+            System.out.println("lista de archivos obtenida:");
+            wpm.getFileToPeer().forEach( (k , v ) -> System.out.println(k));
+
+            System.out.println("Ingrese el nombre completo del archivo a descargar");
+
+            nombre = sc.next();
+
+            Host h = wpm.getFileToPeer().get(nombre);
+
+            getBinaryFileFromPeer(h,nombre);
 
 
         }catch (Exception e){
             e.printStackTrace();
         }
+
+    }
+
+    /**
+     * Crea la conexion contra el peer servidor para realizar la descarga del archivo
+     * @param h
+     * @param nombre
+     */
+    private void getBinaryFileFromPeer(Host h, String nombre) {
+
+        //TODO CRER LOGICA 
 
     }
 
