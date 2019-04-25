@@ -9,7 +9,7 @@ public class Peer {
 
 
         ClientPeer client = new ClientPeer("localhost",8000,"C:\\Users\\Franco\\Desktop\\MemoTest", 8000);
-        ServerPeer serverPeer = new ServerPeer(8000);
+        ServerPeer serverPeer = new ServerPeer(8000,"C:\\Users\\Franco\\Desktop\\MemoTest");
 
         serverPeer.start();
         client.start();

@@ -4,7 +4,6 @@ package com.sdpp.extremos.conections;
 import com.sdpp.utils.Consulta;
 import com.sdpp.utils.WrapperList;
 import com.sdpp.utils.WrapperMap;
-import com.sdpp.utils.enums.Method;
 import com.sdpp.utils.model.Host;
 
 import java.io.IOException;
@@ -12,7 +11,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
