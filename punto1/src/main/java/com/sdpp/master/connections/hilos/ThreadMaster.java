@@ -4,7 +4,6 @@ import com.sdpp.utils.Consulta;
 import com.sdpp.utils.WrapperList;
 import com.sdpp.utils.WrapperMap;
 import com.sdpp.utils.model.Host;
-import sun.reflect.annotation.ExceptionProxy;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

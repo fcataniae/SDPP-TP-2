@@ -24,58 +24,52 @@ public class ThreadServer implements Runnable{
 
     }
 
-    public void run() {
+        public void run () {
 
-       try
-       (
-           ObjectInputStream inputChannel = new ObjectInputStream(this.client.getInputStream());
-       ){
+            try
+                    (
+                            ObjectInputStream inputChannel = new ObjectInputStream(this.client.getInputStream());
+                    ) {
 
-           Consulta c = (Consulta) inputChannel.readObject();
-
-           System.out.println("consulta: " + c.toString());
-           returnDownloadableFile(c);
-
-
-           this.client.close();
-       } catch (Exception e){
-           e.printStackTrace();
-       }
-    }
-
-
-    private void returnDownloadableFile(Consulta c) {
-
-        try(
-                ObjectOutputStream outputChannel = new ObjectOutputStream(this.client.getOutputStream());
-        ){
-            Files.walk(Paths.get(this.sharedFolder)).forEach(ruta -> {
-                if (Files.isRegularFile(ruta)) {
-                    if(ruta.getFileName().toString().equalsIgnoreCase(c.getFileName())){
-                        try {
-                            byte[] binary = Files.readAllBytes(ruta);
-                            FileUtil respuesta = new FileUtil();
-
-
-                            respuesta.setBinary(binary);
-                            respuesta.setName(ruta.getFileName().toString().split("\\.")[0]);
-                            respuesta.setExtension(ruta.getFileName().toString().split("\\.")[1]);
-
-                            outputChannel.writeObject(respuesta);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            });
-
-
-        }catch(Exception e){
-            e.printStackTrace();
+                Consulta c = (Consulta) inputChannel.readObject();
+                System.out.println("consulta: " + c.toString());
+                returnDownloadableFile(c);
+                this.client.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
 
+        private void returnDownloadableFile (Consulta c){
+
+            try (
+                    ObjectOutputStream outputChannel = new ObjectOutputStream(this.client.getOutputStream());
+            ) {
+                Files.walk(Paths.get(this.sharedFolder)).forEach(ruta -> {
+                    if (Files.isRegularFile(ruta)) {
+                        if (ruta.getFileName().toString().equalsIgnoreCase(c.getFileName())) {
+                            try {
+                                byte[] binary = Files.readAllBytes(ruta);
+                                FileUtil respuesta = new FileUtil();
+
+
+                                respuesta.setBinary(binary);
+                                respuesta.setName(ruta.getFileName().toString().split("\\.")[0]);
+                                respuesta.setExtension(ruta.getFileName().toString().split("\\.")[1]);
+
+                                outputChannel.writeObject(respuesta);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                });
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+        }
     }
-
-
-}

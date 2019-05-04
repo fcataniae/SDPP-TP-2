@@ -26,7 +26,7 @@ public class ClientDownloadThread implements Runnable {
 
     public void run() {
 
-
+        System.out.println(host.getIp()+":"+host.getPort());
         try (Socket ss = new Socket(this.host.getIp(), this.host.getPort())) {
 
             ObjectOutputStream os = new ObjectOutputStream(ss.getOutputStream());

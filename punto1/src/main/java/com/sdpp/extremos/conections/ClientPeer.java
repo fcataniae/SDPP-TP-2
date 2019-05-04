@@ -3,21 +3,15 @@ package com.sdpp.extremos.conections;
 
 import com.sdpp.extremos.conections.hilos.ClientDownloadThread;
 import com.sdpp.utils.Consulta;
-import com.sdpp.utils.FileUtil;
 import com.sdpp.utils.WrapperList;
 import com.sdpp.utils.WrapperMap;
-import com.sdpp.utils.enums.Method;
 import com.sdpp.utils.model.Host;
-import com.sun.org.apache.xml.internal.security.utils.DOMNamespaceContext;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;

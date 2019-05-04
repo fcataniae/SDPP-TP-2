@@ -2,23 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58e59351-c4d1-4c05-a3c8-bc90b53f6c4c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/ServerCon.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.classpath" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.project" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto-1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/Peer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/Peer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/master/Master.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/master/Master.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/utils/model/Host.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/utils/model/Host.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/META-INF/punto1.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/Peer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/Peer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/ClientPeer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/ClientPeer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/ServerPeer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/ServerPeer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/hilos/ThreadServer$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/hilos/ClientDownloadThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/hilos/ClientDownloadThread.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/hilos/ThreadServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/extremos/conections/hilos/ThreadServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/master/Master.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/master/Master.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/utils/respuestas/Response.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/master/connections/hilos/ThreadMaster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sdpp/master/connections/hilos/ThreadMaster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/utils/Consulta.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/utils/FileUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/utils/WrapperList.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sdpp/utils/enums/Method.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,8 +44,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1550">
-              <caret line="115" column="43" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="43" />
+            <state relative-caret-position="136">
+              <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+            <state relative-caret-position="119">
+              <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/ServerCon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
+            <state relative-caret-position="443">
               <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -69,20 +80,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="85">
+              <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/Peer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="104" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+            <state relative-caret-position="391">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,11 +123,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="54">
+              <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -130,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="136">
+              <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -175,15 +183,15 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/utils/WrapperList.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/utils/WrapperMap.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/master/Master.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/utils/model/Host.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/ServerCon.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/Peer.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java" />
       </list>
     </option>
   </component>
@@ -294,46 +302,6 @@
               <item name="sdpp" type="462c0819:PsiDirectoryNode" />
               <item name="master" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="punto1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="punto1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="connections" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="punto1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="punto1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="master" type="462c0819:PsiDirectoryNode" />
-              <item name="connections" type="462c0819:PsiDirectoryNode" />
-              <item name="hilos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="punto1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="punto1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="punto1" type="b2602c69:ProjectViewProjectNode" />
-              <item name="punto1" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -437,15 +405,15 @@
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.28177643" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27836612" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.37068966" />
-      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.33764368" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.3994253" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -457,7 +425,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.026799388" />
+      <window_info anchor="right" id="Maven" order="4" visible="true" weight="0.21104388" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
     </layout>
     <layout-to-restore>
@@ -554,26 +522,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="33" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/ServerCon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/utils/WrapperMap.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -595,10 +543,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/ServerCon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="443">
+          <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -607,8 +555,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="32" column="79" selection-start-line="32" selection-start-column="79" selection-end-line="32" selection-end-column="79" />
+        <state relative-caret-position="85">
+          <caret line="5" column="33" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -622,30 +577,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ClientPeer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1550">
-          <caret line="115" column="43" selection-start-line="115" selection-start-column="31" selection-end-line="115" selection-end-column="43" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/Peer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="104" selection-start-line="10" selection-start-column="104" selection-end-line="10" selection-end-column="104" />
+        <state relative-caret-position="391">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ClientDownloadThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="28" column="58" selection-start-line="28" selection-start-column="58" selection-end-line="28" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/hilos/ThreadServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="46" column="108" selection-start-line="46" selection-start-column="108" selection-end-line="46" selection-end-column="108" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/sdpp/extremos/conections/ServerPeer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="19" column="25" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
