@@ -1,19 +1,23 @@
-package com.sdpp.extremos.conections;
+package com.sdpp.master.connections;
 
 import com.sdpp.extremos.conections.hilos.ThreadServer;
+import com.sdpp.master.connections.hilos.ThreadMaster;
+import com.sdpp.utils.model.Host;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
+public class ServerCon extends Thread  {
 
-public class ServerPeer extends Thread{
 
     private int port;
-    private String sharedFolder;
+    private Map<String, Host> archivoPeer;
 
-    public ServerPeer(int port, String sharedFolder) {
-        this.sharedFolder = sharedFolder;
+    public ServerCon(int port) {
+        this.archivoPeer = new HashMap<>();
         this.port = port;
     }
 
@@ -21,7 +25,7 @@ public class ServerPeer extends Thread{
 
         try (
                 ServerSocket ss = new ServerSocket(this.port)
-                ){
+        ){
 
 
             int id = 0;
@@ -29,8 +33,7 @@ public class ServerPeer extends Thread{
 
                 Socket client = ss.accept();
                 System.out.println("Cliente conectado desde: "+client.getInetAddress().getCanonicalHostName()+" : "+client.getPort());
-
-                ThreadServer ts = new ThreadServer(client, id, this.sharedFolder);
+                ThreadMaster ts = new ThreadMaster(this.archivoPeer,client);
                 Thread tsThread = new Thread (ts);
                 tsThread.start();
                 id++;
@@ -44,4 +47,5 @@ public class ServerPeer extends Thread{
 
 
     }
+
 }

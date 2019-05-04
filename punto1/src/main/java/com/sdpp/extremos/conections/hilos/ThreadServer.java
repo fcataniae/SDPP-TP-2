@@ -1,25 +1,27 @@
 package com.sdpp.extremos.conections.hilos;
 
 import com.sdpp.utils.Consulta;
+import com.sdpp.utils.FileUtil;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ThreadServer implements Runnable{
 
     private Socket client;
     private int idSession;
+    private String sharedFolder;
 
-    public ThreadServer (Socket client, int id) {
+
+    public ThreadServer (Socket client, int id, String sharedFolder) {
         this.idSession = id;
         this.client = client;
+        this.sharedFolder = sharedFolder;
+
     }
 
     public void run() {
@@ -27,25 +29,13 @@ public class ThreadServer implements Runnable{
        try
        (
            ObjectInputStream inputChannel = new ObjectInputStream(this.client.getInputStream());
-           ObjectOutputStream outputChannel = new ObjectOutputStream(this.client.getOutputStream());
        ){
 
            Consulta c = (Consulta) inputChannel.readObject();
 
-           switch(c.getMethod()){
-               case DOWNLOAD:
+           System.out.println("consulta: " + c.toString());
+           returnDownloadableFile(c);
 
-                   returnDownloadableFile();
-
-                   break;
-               case GET_FULL_FILES:
-
-                   returnFilesSharedList();
-
-                   break;
-               default:
-                   break;
-           }
 
            this.client.close();
        } catch (Exception e){
@@ -53,13 +43,36 @@ public class ThreadServer implements Runnable{
        }
     }
 
-    private void returnFilesSharedList() throws IOException {
+
+    private void returnDownloadableFile(Consulta c) {
+
+        try(
+                ObjectOutputStream outputChannel = new ObjectOutputStream(this.client.getOutputStream());
+        ){
+            Files.walk(Paths.get(this.sharedFolder)).forEach(ruta -> {
+                if (Files.isRegularFile(ruta)) {
+                    if(ruta.getFileName().toString().equalsIgnoreCase(c.getFileName())){
+                        try {
+                            byte[] binary = Files.readAllBytes(ruta);
+                            FileUtil respuesta = new FileUtil();
 
 
-    }
+                            respuesta.setBinary(binary);
+                            respuesta.setName(ruta.getFileName().toString().split("\\.")[0]);
+                            respuesta.setExtension(ruta.getFileName().toString().split("\\.")[1]);
 
-    private void returnDownloadableFile() {
+                            outputChannel.writeObject(respuesta);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            });
 
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
 
 
     }

@@ -1,9 +1,16 @@
 package com.sdpp.utils.model;
 
-public class Host {
+import java.io.Serializable;
+
+public class Host implements Serializable {
 
     private int port;
     private String ip;
+
+    public Host(int port, String ip) {
+        this.port = port;
+        this.ip = ip;
+    }
 
     public int getPort() {
         return port;
