@@ -2,7 +2,7 @@ package com.sdpp.extremos.conections;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import com.sdpp.extremos.conections.utils.Master;
+import com.sdpp.extremos.conections.utils.MasterWrapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileNotFoundException;
@@ -31,18 +31,18 @@ public class PeerCon implements Runnable{
         try {
             reader = new JsonReader(new FileReader(filename));
         } catch (FileNotFoundException e) {
-            log.warn("Cannot get configuration file for masters",e);
+            log.warn("Cannot get configuration file for masterWrappers",e);
         }
-        Master[] masters = new Gson().fromJson(reader, Master[].class);
+        MasterWrapper[] masterWrappers = new Gson().fromJson(reader, MasterWrapper[].class);
 
-        log.info("Account of servers obtained from configuration file: " + masters.length);
+        log.info("Account of servers obtained from configuration file: " + masterWrappers.length);
 
-        Master master = masters[(int)Math.random() * masters.length ];
+        MasterWrapper masterWrapper = masterWrappers[(int)Math.random() * masterWrappers.length ];
 
-        log.info("Master selected from masters " + master);
+        log.info("MasterWrapper selected from masterWrappers " + masterWrapper);
 
-        this.masterIp = master.getIp();
-        this.masterPort = master.getPort();
+        this.masterIp = masterWrapper.getIp();
+        this.masterPort = masterWrapper.getPort();
         this.server = new ServerPeer(serverPort,sharedFolder);
         this.client = new ClientPeer(masterIp,masterPort,sharedFolder,serverPort);
 

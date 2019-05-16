@@ -42,7 +42,7 @@ public class ClientPeer extends Thread {
         try(
                 Socket ss = new Socket(masterIp, masterPort)
         ){
-            log.info("Conection established with Master...");
+            log.info("Conection established with MasterWrapper...");
 
             ObjectInputStream inputChannel;
             ObjectOutputStream outputChannel = new ObjectOutputStream(ss.getOutputStream());
@@ -66,7 +66,7 @@ public class ClientPeer extends Thread {
                 c.setFileName(nombre);
                 c.setMethod(DOWNLOAD);
 
-                log.info("Sending request to Master...");
+                log.info("Sending request to MasterWrapper...");
 
                 outputChannel.writeObject(c);
                 inputChannel = new ObjectInputStream(ss.getInputStream());

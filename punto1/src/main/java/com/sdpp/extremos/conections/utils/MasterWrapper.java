@@ -5,7 +5,7 @@ package com.sdpp.extremos.conections.utils;
  * Date: 16/5/2019
  * Time: 17:02
  */
-public class Master {
+public class MasterWrapper {
 
     private int port;
 
@@ -25,7 +25,7 @@ public class Master {
         this.ip = ip;
     }
 
-    public Master() {
+    public MasterWrapper() {
 
     }
 
@@ -33,7 +33,7 @@ public class Master {
 
     @Override
     public String toString() {
-        return "Master{" +
+        return "MasterWrapper{" +
                 "port=" + port +
                 ", ip='" + ip + '\'' +
                 '}';

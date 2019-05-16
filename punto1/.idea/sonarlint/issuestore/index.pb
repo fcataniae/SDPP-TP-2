@@ -29,3 +29,7 @@ h
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 g
 7src/main/java/com/sdpp/extremos/conections/PeerCon.java,b\d\bd27a394f4e2ecd9b6870f41c6df8a9d52e18949
+O
+src/main/resources/masters.json,5\6\56e5ad2a16ad03007fa2b1013ce9f93ad06ced8d
+l
+<src/main/java/com/sdpp/extremos/conections/utils/Master.java,0\c\0c5b39e6d0734e20b04a5bbd63c8270e322cfdb2
