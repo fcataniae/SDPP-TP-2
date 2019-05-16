@@ -1,12 +1,12 @@
 
 V
 squid:S106"9Replace this use of System.out or System.err by a logger.(ùÏı‰8Ùè¾‹¬-
-Xsquid:S1161":Add the "@Override" annotation above this method signature(“–ış8…£¼«¥-
-[
-squid:S106$"9Replace this use of System.out or System.err by a logger.(â‰Ñ¹øÿÿÿÿ8…£¼«¥-
-Fsquid:S1148/"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…£¼«¥-
-Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ùè¾‹¬-
 [squid:UselessImportCheck	"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8Ùè¾‹¬-
 ^squid:UselessImportCheck
 ".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ8Ùè¾‹¬-
+Xsquid:S1161":Add the "@Override" annotation above this method signature(“–ış8…£¼«¥-
 [squid:UselessImportCheck"0Remove this unused import 'java.nio.file.Files'.(‚ƒü8Ùè¾‹¬-
+Fsquid:S1148/"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8…£¼«¥-
+Zsquid:UselessImportCheck"*Remove this unused import 'java.util.Map'.(¼è½Òşÿÿÿÿ8Ùè¾‹¬-
+[
+squid:S106$"9Replace this use of System.out or System.err by a logger.(â‰Ñ¹øÿÿÿÿ8…£¼«¥-

@@ -1,12 +1,12 @@
 
-T
-squid:S106E"9Replace this use of System.out or System.err by a logger.(„›ÚÂþÿÿÿÿ
-O
-squid:S106H"9Replace this use of System.out or System.err by a logger.(Ë˜¥½
+?squid:S1148R"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+Qsquid:S1161%":Add the "@Override" annotation above this method signature(“–ýþ
 O
 squid:S1064"9Replace this use of System.out or System.err by a logger.(†çé±
-?squid:S1148R"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ
+O
+squid:S106H"9Replace this use of System.out or System.err by a logger.(Ë˜¥½
 Vsquid:S3725|":Replace this with a call to the "toFile().isFile()" method(š‚ñúúÿÿÿÿ
-Qsquid:S1161%":Add the "@Override" annotation above this method signature(“–ýþ
 [
 squid:S106F"9Replace this use of System.out or System.err by a logger.(á¹êœÿÿÿÿÿ8Ûè¾‹¬-
+T
+squid:S106E"9Replace this use of System.out or System.err by a logger.(„›ÚÂþÿÿÿÿ

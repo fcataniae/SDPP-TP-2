@@ -3,6 +3,7 @@ package com.sdpp.extremos.conections.hilos;
 import com.sdpp.utils.Consulta;
 import com.sdpp.utils.FileUtil;
 import com.sdpp.utils.model.Host;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.File;
 import java.io.ObjectInputStream;
@@ -12,6 +13,8 @@ import java.nio.file.Files;
 
 import static com.sdpp.utils.enums.Method.DOWNLOAD;
 
+
+@Slf4j(topic = "logger")
 public class ClientDownloadThread implements Runnable {
 
     private Host host;
@@ -26,32 +29,35 @@ public class ClientDownloadThread implements Runnable {
 
     public void run() {
 
-        System.out.println(host.getIp()+":"+host.getPort());
-        try (Socket ss = new Socket(this.host.getIp(), this.host.getPort())) {
+        try (Socket ss = new Socket(host.getIp(), host.getPort())) {
 
+            log.info("Conected to peer...");
             ObjectOutputStream os = new ObjectOutputStream(ss.getOutputStream());
 
             Consulta c = new Consulta();
             c.setMethod(DOWNLOAD);
             c.setFileName(fileName);
-            System.out.println("enviando consulta a peer " + c.toString());
+
+            log.info("Sending download request for file " + fileName.toUpperCase());
 
             os.writeObject(c);
-
             ObjectInputStream is = new ObjectInputStream(ss.getInputStream());
-            System.out.println("Esperando respuesta del peer");
-            FileUtil fu = (FileUtil) is.readObject();
-            System.out.println("Respuesta obtenida");
 
-            System.out.println("Guardando archivo");
+
+            log.info("Waiting for peer response ...");
+
+            FileUtil fu = (FileUtil) is.readObject();
+
+            log.info("Response obtained, saving file in disk");
+
 
             Files.write(new File(this.sharedFolder + "\\" + fu.getName() + "-download"+"."+fu.getExtension()).toPath(), fu.getBinary());
 
-            System.out.println("Se creo el archivo descargado en disco correctamente");
+            log.info("File succesfuly created ...");
 
         }
         catch (Exception e ){
-            e.printStackTrace();
+            log.warn("An error happened while downloading file " + fileName  + " from peer ", e);
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.sdpp.extremos.conections;
 
 import com.sdpp.extremos.conections.hilos.ThreadServer;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-
+@Slf4j(topic = "logger")
 public class ServerPeer extends Thread{
 
     private int port;
@@ -23,17 +24,18 @@ public class ServerPeer extends Thread{
 
         public void run () {
 
+            log.info("Starting peer server in port " + port );
             try (
-                    ServerSocket ss = new ServerSocket(this.port)
+                    ServerSocket ss = new ServerSocket(port)
             ) {
 
-                System.out.println("Server peer escuchando en puerto " + this.port);
+                log.info("Server succesfuly started");
 
                 int id = 0;
                 while (true) { //NOSONAR:
 
                     Socket client = ss.accept();
-                    System.out.println("Cliente conectado desde: " + client.getInetAddress().getCanonicalHostName() + " : " + client.getPort());
+                    log.info("Client connected from " + client.getInetAddress().getCanonicalHostName() + ":" + client.getPort());
 
                     ThreadServer ts = new ThreadServer(client, id, this.sharedFolder);
                     Thread tsThread = new Thread(ts);
@@ -44,7 +46,7 @@ public class ServerPeer extends Thread{
 
 
             } catch (IOException e) {
-                e.printStackTrace();
+                log.warn("An error happened while running server peer",e);
             }
 
 

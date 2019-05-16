@@ -2,6 +2,7 @@ package com.sdpp.extremos.conections.hilos;
 
 import com.sdpp.utils.Consulta;
 import com.sdpp.utils.FileUtil;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -10,11 +11,13 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+@Slf4j(topic = "logger")
 public class ThreadServer implements Runnable{
 
     private Socket client;
     private int idSession;
     private String sharedFolder;
+    private String logHead;
 
 
     public ThreadServer (Socket client, int id, String sharedFolder) {
@@ -22,21 +25,29 @@ public class ThreadServer implements Runnable{
         this.client = client;
         this.sharedFolder = sharedFolder;
 
+        this.logHead = "THREAD PEER " + idSession + " - ";
     }
 
         public void run () {
+
 
             try
                     (
                             ObjectInputStream inputChannel = new ObjectInputStream(this.client.getInputStream());
                     ) {
 
+                log.info(logHead + "Receiving request for file");
+
                 Consulta c = (Consulta) inputChannel.readObject();
-                System.out.println("consulta: " + c.toString());
+
+                log.info(logHead + "File to seek and send " + c.getFileName());
+
                 returnDownloadableFile(c);
+
+                log.info(logHead + "Closing connection from client...");
                 this.client.close();
             } catch (Exception e) {
-                e.printStackTrace();
+                log.warn("An error happened while receiving a download request",e);
             }
         }
 
@@ -46,21 +57,33 @@ public class ThreadServer implements Runnable{
             try (
                     ObjectOutputStream outputChannel = new ObjectOutputStream(this.client.getOutputStream());
             ) {
+                log.info(logHead + "Preparing response...");
+
                 Files.walk(Paths.get(this.sharedFolder)).forEach(ruta -> {
                     if (Files.isRegularFile(ruta)) {
+
                         if (ruta.getFileName().toString().equalsIgnoreCase(c.getFileName())) {
+
+                            log.info(logHead + "File found iun shared folder...");
+
                             try {
+
+                                log.info(logHead + "Generating binary..");
+
                                 byte[] binary = Files.readAllBytes(ruta);
                                 FileUtil respuesta = new FileUtil();
-
-
                                 respuesta.setBinary(binary);
                                 respuesta.setName(ruta.getFileName().toString().split("\\.")[0]);
                                 respuesta.setExtension(ruta.getFileName().toString().split("\\.")[1]);
 
+                                log.info(logHead + "Sending file to client...");
+
                                 outputChannel.writeObject(respuesta);
+
+                                log.info(logHead + "File transfer complete...");
+
                             } catch (IOException e) {
-                                e.printStackTrace();
+                                log.info("Error while transforming and sending binary",e);
                             }
                         }
                     }
@@ -68,7 +91,7 @@ public class ThreadServer implements Runnable{
 
 
             } catch (Exception e) {
-                e.printStackTrace();
+                log.warn("Error when seeking for file in shared folder" , e);
             }
 
         }

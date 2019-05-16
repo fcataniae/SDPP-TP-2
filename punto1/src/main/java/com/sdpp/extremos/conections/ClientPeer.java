@@ -6,6 +6,7 @@ import com.sdpp.utils.Consulta;
 import com.sdpp.utils.WrapperList;
 import com.sdpp.utils.WrapperMap;
 import com.sdpp.utils.model.Host;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -20,6 +21,7 @@ import java.util.Scanner;
 
 import static com.sdpp.utils.enums.Method.DOWNLOAD;
 
+@Slf4j(topic = "logger")
 public class ClientPeer extends Thread {
 
     private String masterIp;
@@ -36,9 +38,11 @@ public class ClientPeer extends Thread {
 
     public void run(){
 
+        log.info("Client connecting to server in " + masterIp + ":" + masterPort);
         try(
-                Socket ss = new Socket(this.masterIp, this.masterPort)
+                Socket ss = new Socket(masterIp, masterPort)
         ){
+            log.info("Conection established with Master...");
 
             ObjectInputStream inputChannel;
             ObjectOutputStream outputChannel = new ObjectOutputStream(ss.getOutputStream());
@@ -46,40 +50,41 @@ public class ClientPeer extends Thread {
 
             WrapperList wpl = getWplObject();
 
+            log.info("Sending shared file list to master...");
 
             outputChannel.writeObject(wpl);
 
-            System.out.println("Ingrese el nombre del archivo a buscar entre los peers");
 
-            Scanner sc = new Scanner(System.in);
+            while(true) {
 
-            String nombre = sc.next();
+                log.info("Search file by name in master: ");
 
-            Consulta  c = new Consulta();
 
-            c.setFileName(nombre);
-            c.setMethod(DOWNLOAD);
+                Scanner sc = new Scanner(System.in);
+                String nombre = sc.next();
+                Consulta c = new Consulta();
+                c.setFileName(nombre);
+                c.setMethod(DOWNLOAD);
 
-            outputChannel.writeObject(c);
+                log.info("Sending request to Master...");
 
-            inputChannel = new ObjectInputStream(ss.getInputStream());
+                outputChannel.writeObject(c);
+                inputChannel = new ObjectInputStream(ss.getInputStream());
+                WrapperMap wpm = (WrapperMap) inputChannel.readObject();
 
-            WrapperMap wpm = (WrapperMap) inputChannel.readObject();
+                log.info("File list obtained from server: ");
 
-            System.out.println("lista de archivos obtenida:");
-            wpm.getFileToPeer().forEach( (k , v ) -> System.out.println(k));
+                wpm.getFileToPeer().forEach((k, v) -> log.info(k));
 
-            System.out.println("Ingrese el nombre completo del archivo a descargar");
+                log.info("Insert file name to download:");
 
-            nombre = sc.next();
-
-            Host h = wpm.getFileToPeer().get(nombre);
-
-            getBinaryFileFromPeer(h,nombre);
-
+                nombre = sc.next();
+                Host h = wpm.getFileToPeer().get(nombre);
+                getBinaryFileFromPeer(h, nombre);
+            }
 
         }catch (Exception e){
-            e.printStackTrace();
+            log.info("An error happened while running the client",e);
         }
 
     }
@@ -91,8 +96,8 @@ public class ClientPeer extends Thread {
      */
     private void getBinaryFileFromPeer(Host h, String nombre) {
 
+        log.info("Starting thread to download binary from peer in " + h.getIp() + ":" + h.getPort() );
         ClientDownloadThread c = new ClientDownloadThread(h,nombre,this.sharedFolder);
-
         c.run();
 
     }

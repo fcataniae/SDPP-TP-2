@@ -43,23 +43,24 @@ public class ThreadMaster implements Runnable {
 
             log.info(logHead + "Amount of files: " + this.archivos.size());
 
-            log.info(logHead + "Waiting for client request ...");
+            while(true) {
+                log.info(logHead + "Waiting for client request ...");
 
-            Consulta c = (Consulta)(is.readObject());
+                Consulta c = (Consulta) (is.readObject());
 
-            log.info(logHead + "Requested file: " + c.getFileName());
+                log.info(logHead + "Requested file: " + c.getFileName());
 
-            this.archivos.forEach( (k,v) -> {
-                if(k.contains(c.getFileName())){
-                    wpm.getFileToPeer().put(k,v);
-                }
-            });
+                this.archivos.forEach((k, v) -> {
+                    if (k.contains(c.getFileName())) {
+                        wpm.getFileToPeer().put(k, v);
+                    }
+                });
 
-            ObjectOutputStream os = new ObjectOutputStream(this.cliente.getOutputStream());
+                ObjectOutputStream os = new ObjectOutputStream(this.cliente.getOutputStream());
 
-            log.info(logHead + "Amount of files founds " + wpm.getFileToPeer().size());
-            os.writeObject(wpm);
-
+                log.info(logHead + "Amount of files founds " + wpm.getFileToPeer().size());
+                os.writeObject(wpm);
+            }
         }catch (Exception e ){
             log.warn(logHead + "An exception happend while the client was being attended ", e);
         }
