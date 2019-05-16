@@ -27,3 +27,5 @@ h
 8src/main/java/com/sdpp/master/connections/ServerCon.java,0\6\06cefbb687bbc43ee55a6a909ef25cebc9cbfd33
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+g
+7src/main/java/com/sdpp/extremos/conections/PeerCon.java,b\d\bd27a394f4e2ecd9b6870f41c6df8a9d52e18949
