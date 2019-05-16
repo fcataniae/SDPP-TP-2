@@ -3,7 +3,7 @@ package com.sdpp.master;
 import com.sdpp.master.connections.ServerCon;
 import lombok.extern.slf4j.Slf4j;
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class Master {
 
 

@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ServerPeer extends Thread{
 
     private int port;

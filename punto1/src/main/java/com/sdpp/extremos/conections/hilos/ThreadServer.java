@@ -11,7 +11,7 @@ import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ThreadServer implements Runnable{
 
     private Socket client;

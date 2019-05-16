@@ -21,7 +21,7 @@ import java.util.Scanner;
 
 import static com.sdpp.utils.enums.Method.DOWNLOAD;
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ClientPeer extends Thread {
 
     private String masterIp;

@@ -11,7 +11,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Map;
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ThreadMaster implements Runnable {
 
     private Map<String, Host> archivos;

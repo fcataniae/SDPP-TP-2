@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ServerCon extends Thread  {
 
 

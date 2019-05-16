@@ -14,7 +14,7 @@ import java.nio.file.Files;
 import static com.sdpp.utils.enums.Method.DOWNLOAD;
 
 
-@Slf4j(topic = "logger")
+@Slf4j
 public class ClientDownloadThread implements Runnable {
 
     private Host host;
