@@ -1,0 +1,15 @@
+
+O
+squid:S106*"9Replace this use of System.out or System.err by a logger.(‰ä¦
+=squid:S10750"&Remove this hard-coded path-delimiter.(Ş”Ú¸
+T
+squid:S106,"9Replace this use of System.out or System.err by a logger.(ª›øÿÿÿÿ
+?squid:S11486"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ëçö§ûÿÿÿÿ
+T
+squid:S106%"9Replace this use of System.out or System.err by a logger.(ÍµÔÿÿÿÿÿ
+O
+squid:S106."9Replace this use of System.out or System.err by a logger.(û”¢©
+O
+squid:S1062"9Replace this use of System.out or System.err by a logger.(ƒù¾ş

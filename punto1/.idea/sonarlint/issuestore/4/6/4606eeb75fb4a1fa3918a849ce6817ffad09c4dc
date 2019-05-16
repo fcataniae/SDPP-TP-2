@@ -1,0 +1,9 @@
+
+Fsquid:S1148G"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Õè¾‹¬-
+]squid:S37252":Replace this with a call to the "toFile().isFile()" method(š‚ñúúÿÿÿÿ8Õè¾‹¬-
+Fsquid:S1148?"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Õè¾‹¬-
+[
+squid:S106#"9Replace this use of System.out or System.err by a logger.(½²­ûÿÿÿÿ8Õè¾‹¬-
+?squid:S1148'"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Isquid:S1068"-Remove this unused "idSession" private field.(Ú‘ˆ‚øÿÿÿÿ
+Rsquid:S10663"/Merge this if statement with the enclosing one.(……Åîùÿÿÿÿ8Õè¾‹¬-

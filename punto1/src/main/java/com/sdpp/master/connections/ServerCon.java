@@ -3,6 +3,7 @@ package com.sdpp.master.connections;
 import com.sdpp.extremos.conections.hilos.ThreadServer;
 import com.sdpp.master.connections.hilos.ThreadMaster;
 import com.sdpp.utils.model.Host;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -10,6 +11,8 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
+
+@Slf4j(topic = "logger")
 public class ServerCon extends Thread  {
 
 
@@ -21,28 +24,30 @@ public class ServerCon extends Thread  {
         this.port = port;
     }
 
+    @Override
     public void run() {
 
+
+        log.info("Server starting at port " + this.port);
         try (
                 ServerSocket ss = new ServerSocket(this.port)
         ){
 
-
-            int id = 0;
+            log.info("Server listening for connections...");
+            int id = 1;
             while (true) { //NOSONAR:
 
                 Socket client = ss.accept();
-                System.out.println("Cliente conectado desde: "+client.getInetAddress().getCanonicalHostName()+" : "+client.getPort());
-                ThreadMaster ts = new ThreadMaster(this.archivoPeer,client);
+                log.info("Client connected from:  "+client.getInetAddress().getCanonicalHostName()+":"+client.getPort());
+                ThreadMaster ts = new ThreadMaster(this.archivoPeer,client, id);
                 Thread tsThread = new Thread (ts);
                 tsThread.start();
                 id++;
-
             }
 
 
         } catch (IOException e) {
-            e.printStackTrace();
+            log.warn("Error durante la ejecucion del servidor!!!", e);
         }
 
 

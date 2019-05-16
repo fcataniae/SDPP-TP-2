@@ -8,8 +8,8 @@ public class Peer {
     public static void main(String[] args) throws InterruptedException{
 
 
-        ClientPeer client = new ClientPeer("localhost",9000,"C:\\Users\\Franco\\Desktop\\MemoTest", 8002);
-        ServerPeer serverPeer = new ServerPeer(8002,"C:\\Users\\Franco\\Desktop\\MemoTest");
+        ClientPeer client = new ClientPeer("localhost",9000,"C:\\Users\\fcatania\\Desktop\\demo-jwt-master", 8002);
+        ServerPeer serverPeer = new ServerPeer(8002,"C:\\Users\\fcatania\\Desktop\\demo-jwt-master");
 
 
         serverPeer.start();
