@@ -25,7 +25,7 @@ public class PeerCon implements Runnable{
 
     public PeerCon(int serverPort, String sharedFolder) {
 
-        String filename = getClass().getClassLoader().getResource("masters.json").getFile();
+        String filename = "masters.json";//getClass().getClassLoader().getResource("masters.json").getFile();
         log.info(filename);
         JsonReader reader = null;
         try {
