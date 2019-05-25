@@ -2,7 +2,7 @@ package com.sdpp.extremos.conections;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import com.sdpp.extremos.conections.utils.MasterWrapper;
+import com.sdpp.extremos.conections.utils.MasterWrapperper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileNotFoundException;

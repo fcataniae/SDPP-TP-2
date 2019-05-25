@@ -1,0 +1,731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d6d027b2-8ac8-42b5-9b14-c04425172326" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/SDPP-TP-2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/rabittmq-distributed-queue.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Message.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/hilo/ThreadServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/copyright/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_1_2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/libraries/Maven__org_projectlombok_lombok_1_18_4.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_4.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/punto1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/0/0/0071e67d2cd6be92fab8ce669ee7a4e349585a40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/0/6/06cefbb687bbc43ee55a6a909ef25cebc9cbfd33" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/0/c/0c5b39e6d0734e20b04a5bbd63c8270e322cfdb2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/2/b/2bab75ee2ff2f36e69e8d87447f4b563ba30a86a" beforeDir="false" afterPath="$PROJECT_DIR$/punto3/src/main/resources/rabbitmq-properties.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/3/6/3608a1226eac1fce26744a5d5c7e2e1e402a39af" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/3/9/390e419842c29a15133dca2199297d4da3ada44f" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/3/a/3ac39cd4829fc093108be6f302f33fd64b77284b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/4/6/4606eeb75fb4a1fa3918a849ce6817ffad09c4dc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/4/f/4f759cc9613fce71bc7591b760a0ea4483a03f40" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/5/6/56e5ad2a16ad03007fa2b1013ce9f93ad06ced8d" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/5/9/59be7f4ef37522031b793ec45413c5dca17169f1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/7/0/7097ec3a5185ee6ac4acfdc815ac0ecc28af4a67" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/a/7/a741caeb67c0dc464d6c5b0a1918ce2672093457" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/b/d/bd27a394f4e2ecd9b6870f41c6df8a9d52e18949" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/e/7/e783c5e10c8af8d78ac5e3cd0d4b1240f1a215d5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/e/8/e86f8baea046ab999243968244eb5566dfaf6bfd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/sonarlint/issuestore/index.pb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/uiDesigner.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/punto-1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/punto1/punto-1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/punto1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/PeerCon.java" beforeDir="false" afterPath="$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/PeerCon.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/punto3/target/" />
+    <ignored path="$PROJECT_DIR$/punto1/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="101" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="19" selection-start-line="18" selection-end-line="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="382">
+              <caret line="43" selection-start-line="43" selection-end-line="43" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/resources/rabbitmq-properties.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="408">
+              <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1054">
+              <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/hilo/ThreadServer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="748">
+              <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/punto3/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitmqConf.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java" />
+        <option value="$PROJECT_DIR$/punto3/pom.xml" />
+        <option value="$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/PeerCon.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Operation.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Message.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/NodeThread.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/hilo/ThreadServer.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java" />
+        <option value="$PROJECT_DIR$/punto3/src/main/resources/rabbitmq-properties.json" />
+        <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="punto-1" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="punto-1" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="rabittmq-distributed-queue" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="rabittmq-distributed-queue" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
+              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/punto1/pom.xml" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Franco\Desktop\dev\SDPP-TP-2\punto3\src\main\resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sdpp.model" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.Usuario">
+    <configuration name="Dispatcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.disp.Dispatcher" />
+      <module name="rabittmq-distributed-queue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdpp.disp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RabbitConf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.model.RabbitConf" />
+      <module name="punto3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdpp.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.server.Server" />
+      <module name="rabittmq-distributed-queue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdpp.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Usuario" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.user.Usuario" />
+      <module name="rabittmq-distributed-queue" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdpp.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Usuario" />
+        <item itemvalue="Application.Dispatcher" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.RabbitConf" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d6d027b2-8ac8-42b5-9b14-c04425172326" name="Default Changelist" comment="" />
+      <created>1558812687981</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558812687981</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2246596" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.45171848" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2111293" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.3797054" />
+      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289689" />
+      <window_info anchor="right" id="Coverage" sideWeight="0.5039578" side_tool="true" weight="0.19742814" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49604222" visible="true" weight="0.19742814" />
+      <window_info anchor="right" id="Palette&#9;" order="5" />
+    </layout>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SDPP_TP_2$Usuario.ic" NAME="Usuario Coverage Results" MODIFIED="1558826072292" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.sdpp.user.*</FILTER>
+    </SUITE>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="35" column="16" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model.java" />
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/ClientPeer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/ServerPeer.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/conections/PeerCon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="33" lean-forward="true" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/extremos/Peer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/master/connections/hilos/ThreadMaster.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/master/Master.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/utils/model/Host.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/master/connections/ServerCon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="25" lean-forward="true" selection-start-line="19" selection-start-column="25" selection-end-line="19" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="37" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/rabbitmq/amqp-client/5.5.0/amqp-client-5.5.0.jar!/com/rabbitmq/client/Channel.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="109" column="45" selection-start-line="109" selection-start-column="45" selection-end-line="109" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/Usuario.java" />
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-29">
+          <caret line="38" column="58" lean-forward="true" selection-start-line="38" selection-start-column="58" selection-end-line="38" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#282#283#0" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#215#216#0" expanded="true" />
+            <element signature="e#247#248#0" expanded="true" />
+            <element signature="e#300#301#0" expanded="true" />
+            <element signature="e#342#343#0" expanded="true" />
+            <element signature="e#373#374#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#440#441#0" expanded="true" />
+            <element signature="e#472#473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="35" column="45" selection-start-line="35" selection-start-column="45" selection-end-line="35" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/hilo/ThreadServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="55" column="48" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="18" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="76" column="34" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/resources/rabbitmq-properties.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>rabittmq-distributed-queue</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ch.qos.logback:logback-classic:1.1.2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
