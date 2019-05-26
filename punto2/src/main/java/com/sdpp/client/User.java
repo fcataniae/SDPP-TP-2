@@ -22,14 +22,53 @@ public class User extends Thread {
 
     Transaction t ;
     BigDecimal monto;
+    String ip;
+    Long port;
+
+    public Transaction getT() {
+        return t;
+    }
+
+    public void setT(Transaction t) {
+        this.t = t;
+    }
+
+    public BigDecimal getMonto() {
+        return monto;
+    }
+
+    public void setMonto(BigDecimal monto) {
+        this.monto = monto;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public Long getPort() {
+        return port;
+    }
+
+    public void setPort(Long port) {
+        this.port = port;
+    }
+
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
         int i = 0;
         Random r = new Random();
+
         while(i < 100) {
             User u = new User();
             u.monto = new BigDecimal("10000");
             u.t = (r.nextBoolean())? Transaction.DEPOSITO: Transaction.EXTRACCION;
+            u.ip = "localhost";
+            u.port = 8000L;
+
             u.start();
             i++;
         }
@@ -42,17 +81,17 @@ public class User extends Thread {
         o.setMonto(monto);
         o.setTransaction(t);
 
-        Socket s = new Socket("localhost",8000);
+        Socket s = new Socket(ip,port.intValue());
 
         ObjectOutputStream os = new ObjectOutputStream(s.getOutputStream());
 
-        log.info(o.toString());
+        log.info("Sending operation: " + o.toString());
         os.writeObject(o);
 
         ObjectInputStream is = new ObjectInputStream(s.getInputStream());
 
         OperationResponse or = (OperationResponse) is.readObject();
-        log.info(or.toString());
+        log.info("Response for operation"+or.toString());
     }
 
     @Override

@@ -24,7 +24,7 @@ public class TransactionThread extends Thread {
     private Operation operation;
     private final Object cuenta;
     private String TAG;
-    private static String filename = TransactionThread.class.getClassLoader().getResource("cuentas.json").getFile();// "cuentas.json";//
+    private static String filename = "cuentas.json";//TransactionThread.class.getClassLoader().getResource("cuentas.json").getFile();// "cuentas.json";//
 
 
     public TransactionThread(Socket client, Long id, Object cuenta) {

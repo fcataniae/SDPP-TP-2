@@ -14,7 +14,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="punto-1" target="1.8" />
-      <module name="punto2" target="1.5" />
+      <module name="punto2" target="1.8" />
       <module name="punto3" target="1.8" />
       <module name="rabittmq-distributed-queue" target="1.8" />
     </bytecodeTargetLevel>
