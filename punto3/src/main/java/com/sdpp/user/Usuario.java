@@ -1,23 +1,52 @@
 package com.sdpp.user;
 
 import com.sdpp.model.Message;
-import com.sdpp.model.Operation;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.Scanner;
+
+import static com.sdpp.model.Operation.*;
 
 /**
  * Usuario: Franco
  * Project: SDPP-TP-2
  * Fecha: 5/25/2019
  **/
+
+@Slf4j
 public class Usuario {
 
-    public static void main(String[] args) throws Exception, ClassNotFoundException {
+    Long port;
+    String ip;
+
+    public Usuario(Long port, String ip) {
+        this.port = port;
+        this.ip = ip;
+    }
+
+    public Long getPort() {
+        return port;
+    }
+
+    public void setPort(Long port) {
+        this.port = port;
+    }
+
+    public String getIp() {
+        return ip;
+    }
+
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
+
+    public static void main(String[] args) throws Exception {
        int i = 0;
         while(i< 200){
-            TrheadUser r = new TrheadUser();
+            TrheadUser r = new TrheadUser(null);
 
             r.start();
 
@@ -25,28 +54,100 @@ public class Usuario {
         }
     }
 
+    public void startUsuario() {
+        log.info("ctrl+c para finalizar.");
+        log.info("Ingrese el metodo a utilizar");
+
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            log.info("1 - DELETE");
+            log.info("2 - POST");
+            log.info("3 - GET");
+
+            log.info("seleccione la opcion");
+            String op = sc.nextLine();
+
+            if(op.matches("\\d*")){
+                Message m = new Message();
+
+                log.info("Ingrese el mensaje a enviar");
+                String mess = sc.nextLine();
+                m.setBody(mess);
+                log.info("Ingrese la cantidad de veces a enviar la operacion");
+
+                String veces = sc.nextLine();
+
+                if(veces.matches("\\d*")) {
+
+                    switch (op) {
+
+                        case "1":
+                            m.setOperation(DELETE);
+                            sendXTimes(m,Long.valueOf(veces));
+                            break;
+                        case "2":
+                            m.setOperation(POST);
+                            sendXTimes(m,Long.valueOf(veces));
+                            break;
+                        case "3":
+                            m.setOperation(GET);
+                            sendXTimes(m,Long.valueOf(veces));
+                            break;
+                        default:
+                            log.info("La opcion no es valida..");
+                            break;
+                    }
+                }else{
+                    log.info("Debe ingresar una opcion numerica");
+                }
+            }else{
+                log.info("Debe ingresar una opcion numerica");
+            }
+        }
+
+    }
+
+    private void sendXTimes(Message m, Long veces){
+
+        int i= 0;
+        TrheadUser t = new TrheadUser(m,this.port,this.ip);
+        while(i < veces){
+            t.run();
+            i++;
+        }
+    }
     private static class TrheadUser extends Thread{
+
+        private Message m ;
+        private Long port;
+        private String ip;
+
+        private TrheadUser(Message m){
+            this.m = m;
+        }
+        private TrheadUser(Message m, Long port, String ip){
+            this.port = port;
+            this.ip = ip;
+            this.m = m;
+        }
 
         @Override
         public void run() {
             Socket s = null;
             try {
-                s = new Socket("localhost", 8001);
+                s = new Socket(ip, port.intValue());
 
                 ObjectOutputStream inputObjectStream = new ObjectOutputStream(s.getOutputStream());
 
-                Message m = new Message();
 
-                m.setOperation(Operation.DELETE);
-                m.setBody((Object) "Mensaje con delete");
                 inputObjectStream.writeObject(m);
 
-                System.out.println(m.toString());
+                log.info("Mensaje a enviar: " +m.toString());
                 ObjectInputStream is = new ObjectInputStream(s.getInputStream());
 
                 Message m2 = (Message) is.readObject();
 
-                System.out.println(m2.toString());
+                log.info("Mensaje recibido: "+m2.toString());
             } catch (Exception e) {
                 e.printStackTrace();
             }

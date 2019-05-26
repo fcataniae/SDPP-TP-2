@@ -73,6 +73,7 @@ public class NodeThread extends Thread {
 
 
             }
+            Thread.sleep(6000);
             this.channel.basicPublish("",notificationQueueName,MessageProperties.PERSISTENT_TEXT_PLAIN,currentNode.getBytes());
             log.info(TAG+ "Exiting thread");
         } catch (Exception e) {

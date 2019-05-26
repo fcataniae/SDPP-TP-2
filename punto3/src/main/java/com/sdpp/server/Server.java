@@ -48,7 +48,7 @@ public class Server {
             throw new RuntimeException(e);
         }
     }
-    private void startServer(){
+    public void startServer(){
         log.info("Configuring connection w RabbitMQ");
         configureConnectionWRabbit();
         log.info("Conecction established. Starting server...");
