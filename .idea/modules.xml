@@ -4,7 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SDPP-TP-2.iml" filepath="$PROJECT_DIR$/.idea/SDPP-TP-2.iml" />
       <module fileurl="file://$PROJECT_DIR$/punto1/punto-1.iml" filepath="$PROJECT_DIR$/punto1/punto-1.iml" />
-      <module fileurl="file://$PROJECT_DIR$/punto3/rabittmq-distributed-queue.iml" filepath="$PROJECT_DIR$/punto3/rabittmq-distributed-queue.iml" />
+      <module fileurl="file://$PROJECT_DIR$/punto2/punto2.iml" filepath="$PROJECT_DIR$/punto2/punto2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/punto3/punto3.iml" filepath="$PROJECT_DIR$/punto3/punto3.iml" />
     </modules>
   </component>
 </project>

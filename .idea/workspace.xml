@@ -2,15 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d6d027b2-8ac8-42b5-9b14-c04425172326" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/StateLoadManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/punto2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/client/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Cuenta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Operation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/OperationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Transaction.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/TransactionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/hilos/TransactionThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/resources/cuentas.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto2/src/main/resources/logback.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/punto3/punto3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java" beforeDir="false" afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/punto3/target/" />
     <ignored path="$PROJECT_DIR$/punto1/target/" />
+    <ignored path="$PROJECT_DIR$/punto2/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,10 +37,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/hilos/TransactionThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="145" column="57" selection-start-line="145" selection-start-column="57" selection-end-line="145" selection-end-column="57" />
+            <state relative-caret-position="214">
+              <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -38,22 +49,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/StateLoadManager.java">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/client/User.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+            <state relative-caret-position="-39">
+              <caret line="30" column="43" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,33 +70,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/rabbitmq-properties.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Operation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2">
-              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#745#746#0" expanded="true" />
-                <element signature="e#774#775#0" expanded="true" />
-                <element signature="e#819#820#0" expanded="true" />
-                <element signature="e#855#856#0" expanded="true" />
-                <element signature="e#714#715#0" expanded="true" />
-                <element signature="e#743#744#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1156">
-              <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
+            <state relative-caret-position="138">
+              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -97,13 +82,37 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/Main.java">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/OperationResponse.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="952">
-              <caret line="58" column="17" selection-start-line="42" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
+            <state relative-caret-position="138">
+              <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+              <folding>
+                <element signature="e#245#246#0" expanded="true" />
+                <element signature="e#274#275#0" expanded="true" />
+                <element signature="e#318#319#0" expanded="true" />
+                <element signature="e#354#355#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/TransactionManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-109">
+              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Cuenta.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -111,8 +120,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
+            <state relative-caret-position="374">
+              <caret line="43" column="58" selection-start-line="33" selection-start-column="9" selection-end-line="43" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1152#1153#0" expanded="true" />
@@ -137,22 +146,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
-              <caret line="73" selection-start-line="73" selection-end-line="73" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
+            <state relative-caret-position="339">
+              <caret line="71" column="9" selection-start-line="55" selection-start-column="8" selection-end-line="71" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -194,6 +191,15 @@
         <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/Node.java" />
         <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java" />
         <option value="$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/StateLoadManager.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Transaction.java" />
+        <option value="$PROJECT_DIR$/punto2/pom.xml" />
+        <option value="$PROJECT_DIR$/punto2/src/main/resources/cuentas.json" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Cuenta.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Operation.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/OperationResponse.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/TransactionManager.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/hilos/TransactionThread.java" />
+        <option value="$PROJECT_DIR$/punto2/src/main/java/com/sdpp/client/User.java" />
       </list>
     </option>
   </component>
@@ -213,7 +219,11 @@
         </path>
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="rabittmq-distributed-queue" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="synchronyzed-access" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="synchronyzed-access" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
         </path>
       </expand>
@@ -243,96 +253,37 @@
             <path>
               <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="punto2" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="punto2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="punto2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="punto2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
               <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
+              <item name="punto2" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="disp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="nodes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="nodes" type="462c0819:PsiDirectoryNode" />
-              <item name="hilos" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="sdpp" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SDPP-TP-2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SDPP-TP-2" type="462c0819:PsiDirectoryNode" />
-              <item name="punto3" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -344,19 +295,20 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/punto3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/punto2/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.sdpp.model" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Franco\Desktop\dev\SDPP-TP-2\punto2\src\main\resources" />
       <recent name="C:\Users\Franco\Desktop\dev\SDPP-TP-2\punto3" />
       <recent name="C:\Users\Franco\Desktop\dev\SDPP-TP-2\punto3\src\main\resources" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.sdpp.model" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -371,7 +323,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Usuario">
+  <component name="RunManager" selected="Application.User">
     <configuration name="Dispatcher" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.sdpp.disp.Dispatcher" />
       <module name="rabittmq-distributed-queue" />
@@ -385,12 +337,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RabbitConf" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sdpp.model.RabbitConf" />
-      <module name="punto3" />
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.server.Server" />
+      <module name="rabittmq-distributed-queue" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdpp.model.*" />
+          <option name="PATTERN" value="com.sdpp.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -398,12 +350,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.sdpp.server.Server" />
-      <module name="rabittmq-distributed-queue" />
+    <configuration name="TransactionManager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.procces.TransactionManager" />
+      <module name="punto2" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.sdpp.server.*" />
+          <option name="PATTERN" value="com.sdpp.procces.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="User" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.sdpp.client.User" />
+      <module name="punto2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.sdpp.client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -426,10 +391,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.User" />
+        <item itemvalue="Application.TransactionManager" />
         <item itemvalue="Application.Usuario" />
         <item itemvalue="Application.Dispatcher" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="Application.RabbitConf" />
       </list>
     </recent_temporary>
   </component>
@@ -454,29 +420,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4977064" visible="true" weight="0.27231467" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4977064" visible="true" weight="0.29425114" />
       <window_info id="Structure" order="1" sideWeight="0.5022936" side_tool="true" weight="0.2980333" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289689" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.25204584" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49924356" visible="true" weight="0.24222586" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.2111293" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50075644" side_tool="true" weight="0.3797054" />
-      <window_info anchor="bottom" id="Messages" order="9" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.5351882" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49918166" weight="0.19894099" />
+      <window_info anchor="right" id="Maven" order="4" sideWeight="0.49918166" visible="true" weight="0.1505295" />
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info anchor="right" id="Coverage" order="6" sideWeight="0.5008183" side_tool="true" visible="true" weight="0.12556732" />
     </layout>
@@ -599,27 +564,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Estado.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="38" selection-start-line="38" selection-end-line="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/punto3/rabbitmq-properties.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -627,72 +571,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1156">
           <caret line="71" column="50" selection-start-line="71" selection-start-column="50" selection-end-line="71" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="952">
-          <caret line="58" column="17" selection-start-line="42" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="73" selection-start-line="73" selection-end-line="73" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="33" column="60" selection-start-line="33" selection-start-column="60" selection-end-line="33" selection-end-column="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1152#1153#0" expanded="true" />
-            <element signature="e#1179#1180#0" expanded="true" />
-            <element signature="e#1481#1482#0" expanded="true" />
-            <element signature="e#1513#1514#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1571#1572#0" expanded="true" />
-            <element signature="e#1611#1612#0" expanded="true" />
-            <element signature="e#1643#1644#0" expanded="true" />
-            <element signature="e#1675#1676#0" expanded="true" />
-            <element signature="e#1702#1703#0" expanded="true" />
-            <element signature="e#1743#1744#0" expanded="true" />
-            <element signature="e#1775#1776#0" expanded="true" />
-            <element signature="e#1804#1805#0" expanded="true" />
-            <element signature="e#1829#1830#0" expanded="true" />
-            <element signature="e#1865#1866#0" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="49" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -715,6 +593,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/user/Usuario.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/Dispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -725,10 +613,181 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/punto1/src/main/java/com/sdpp/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="58" column="17" selection-start-line="42" selection-start-column="16" selection-end-line="58" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/nodes/hilos/NodeThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/disp/StateLoadManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
+        <state relative-caret-position="342">
+          <caret line="50" column="41" selection-start-line="50" selection-start-column="41" selection-end-line="50" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1190">
+          <caret line="79" column="36" selection-start-line="79" selection-start-column="36" selection-end-line="79" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Estado.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="12" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="71" column="9" selection-start-line="55" selection-start-column="8" selection-end-line="71" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto3/src/main/java/com/sdpp/model/RabbitConf.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="43" column="58" selection-start-line="33" selection-start-column="9" selection-end-line="43" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1152#1153#0" expanded="true" />
+            <element signature="e#1179#1180#0" expanded="true" />
+            <element signature="e#1481#1482#0" expanded="true" />
+            <element signature="e#1513#1514#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#1571#1572#0" expanded="true" />
+            <element signature="e#1611#1612#0" expanded="true" />
+            <element signature="e#1643#1644#0" expanded="true" />
+            <element signature="e#1675#1676#0" expanded="true" />
+            <element signature="e#1702#1703#0" expanded="true" />
+            <element signature="e#1743#1744#0" expanded="true" />
+            <element signature="e#1775#1776#0" expanded="true" />
+            <element signature="e#1804#1805#0" expanded="true" />
+            <element signature="e#1829#1830#0" expanded="true" />
+            <element signature="e#1865#1866#0" expanded="true" />
+            <element signature="e#1893#1894#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Operation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/OperationResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+          <folding>
+            <element signature="e#245#246#0" expanded="true" />
+            <element signature="e#274#275#0" expanded="true" />
+            <element signature="e#318#319#0" expanded="true" />
+            <element signature="e#354#355#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Cuenta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/model/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/resources/cuentas.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/target/classes/cuentas.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/hilos/TransactionThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="214">
+          <caret line="155" column="28" selection-start-line="155" selection-start-column="28" selection-end-line="155" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/procces/TransactionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-109">
+          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/punto2/src/main/java/com/sdpp/client/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-39">
+          <caret line="30" column="43" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -787,7 +846,7 @@
       </state>
       <state key="ModuleStructureConfigurable.UI">
         <settings>
-          <last-edited>rabittmq-distributed-queue</last-edited>
+          <last-edited>punto2</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
