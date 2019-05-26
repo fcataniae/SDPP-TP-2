@@ -2,15 +2,15 @@ package com.sdpp.nodes;
 
 import com.google.gson.Gson;
 import com.rabbitmq.client.*;
+import com.sdpp.model.Estado;
 import com.sdpp.model.Message;
 import com.sdpp.model.RabbitConf;
 import com.sdpp.nodes.hilos.NodeThread;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
+import static com.sdpp.model.Estado.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
@@ -22,21 +22,36 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 @Slf4j
 public class Node extends Thread{
 
-    private String nodeStateQueueName;
+    private Long nodeId;
+    private String notificationQueueName;
     private String nodeProccesQueueName;
     private RabbitConf conf;
     private Channel queueChannel;
-    private ExecutorService tpool;
     private Long load;
-    private Long maxLoad;
 
-    public Node(String nodeStateQueueName, String nodeProccesQueueName, Long maxLoad) {
-        this.nodeStateQueueName = nodeStateQueueName;
+    public Long getNodeId() {
+        return nodeId;
+    }
+
+    public Estado getEstado() {
+        return estado;
+    }
+
+    public void setEstado(Estado estado) {
+        this.estado = estado;
+    }
+
+    private Long maxLoad;
+    private Estado estado;
+
+    public Node(Long nodeId,String notificationQueueName, String nodeProccesQueueName, Long maxLoad) {
+        this.nodeId = nodeId;
+        this.notificationQueueName = notificationQueueName;
         this.nodeProccesQueueName = nodeProccesQueueName;
         this.conf = RabbitConf.getInstance();
         this.maxLoad = maxLoad;
-
-        this.tpool = Executors.newFixedThreadPool(this.maxLoad.intValue());
+        this.load = 0L;
+        this.estado = IDLE;
 
     }
 
@@ -51,7 +66,7 @@ public class Node extends Thread{
             Connection queueConnection = connectionFactory.newConnection();
             this.queueChannel = queueConnection.createChannel();
             this.queueChannel.queueDeclare(this.nodeProccesQueueName, true, false, false, null);
-            this.queueChannel.queueDeclare(this.nodeStateQueueName, true, false, false, null);
+            this.queueChannel.queueDeclare(this.notificationQueueName, true, false, false, null);
         } catch (Exception e) {
             log.warn("Error while conecting to Rabbit", e);
             throw new RuntimeException(e);
@@ -63,6 +78,7 @@ public class Node extends Thread{
         log.info("Configuring connection w RabbitMQ");
         configureConnectionWRabbit();
         log.info("Conecction established. Starting server...");
+        log.info("Max load : " + maxLoad);
         try {
             Consumer consumer = new DefaultConsumer(this.queueChannel) {
                 @Override
@@ -71,8 +87,10 @@ public class Node extends Thread{
                     Message m = new Gson().fromJson(message,Message.class);
                     log.info("Message received to process " + message);
 
-                    NodeThread nt = new NodeThread(queueChannel,m);
-                    tpool.execute(nt);
+                    NodeThread nt = new NodeThread(queueChannel,m,notificationQueueName,nodeId.toString());
+
+                    execute(nt);
+
                 }
             };
 
@@ -84,5 +102,51 @@ public class Node extends Thread{
         }
 
     }
+
+    public Long getLoad() {
+        return load;
+    }
+
+    public void setLoad(Long load) {
+        this.load = load;
+    }
+
+    public Long getMaxLoad() {
+        return maxLoad;
+    }
+
+    public void setMaxLoad(Long maxLoad) {
+        this.maxLoad = maxLoad;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "id=" + nodeId +
+                "estate=" + estado.name()+
+                '}';
+    }
+
+    private void execute(NodeThread nt ){
+        try {
+
+            log.debug("current load " + load);
+
+            while(load > maxLoad){
+                log.info("waiting for realease");
+                Thread.sleep(1000);
+            }
+
+            log.debug("Release obtained, starting thread");
+            nt.start();
+
+
+        } catch (InterruptedException e) {
+           log.warn("Error while trying to excecute thread node",e);
+        }
+
+    }
+
+
 
 }

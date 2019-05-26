@@ -3,7 +3,6 @@ package com.sdpp.user;
 import com.sdpp.model.Message;
 import com.sdpp.model.Operation;
 
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -15,9 +14,9 @@ import java.net.Socket;
  **/
 public class Usuario {
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws Exception, ClassNotFoundException {
        int i = 0;
-        while(i< 100){
+        while(i< 200){
             TrheadUser r = new TrheadUser();
 
             r.start();

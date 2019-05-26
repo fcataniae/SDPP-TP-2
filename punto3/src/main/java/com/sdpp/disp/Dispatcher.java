@@ -1,6 +1,7 @@
 package com.sdpp.disp;
 
 import com.rabbitmq.client.*;
+import com.sdpp.model.Estado;
 import com.sdpp.model.RabbitConf;
 import com.sdpp.nodes.Node;
 import lombok.extern.slf4j.Slf4j;
@@ -8,7 +9,10 @@ import lombok.extern.slf4j.Slf4j;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
+import static com.sdpp.model.Estado.*;
+import static com.sdpp.model.Estado.CRITICAL;
 import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
@@ -24,12 +28,11 @@ public class Dispatcher {
     private Channel queueChannel;
 
     private static final String nodeQueueProccesName = "Node_proces_";
-    private static final String nodeStatusQueueName = "Node_status_";
-    private static Long currentNode = 0L;
-
+    private static Long currentNode = 1L;
+    private String notificationQueueName = "notification";
     private String inputQueueName = "inputQueue";
 
-    private List<String> nodosActivos;
+    private List<Node> nodosActivos;
 
 
     public Dispatcher(){
@@ -39,7 +42,6 @@ public class Dispatcher {
 
     private void configureConnectionWRabbit(){
         try {
-            this.inputQueueName = "inputQueue";
             ConnectionFactory connectionFactory = new ConnectionFactory();
             connectionFactory.setHost(this.conf.getIp());
             connectionFactory.setPort(this.conf.getPort());
@@ -48,6 +50,7 @@ public class Dispatcher {
             Connection queueConnection = connectionFactory.newConnection();
             this.queueChannel = queueConnection.createChannel();
             this.queueChannel.queueDeclare(this.inputQueueName, true, false, false, null);
+            this.queueChannel.queueDeclare(this.notificationQueueName, true, false, false, null);
         } catch (Exception e) {
             log.warn("Error while conecting to Rabbit", e);
             throw new RuntimeException(e);
@@ -65,15 +68,25 @@ public class Dispatcher {
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
                     String message = new String(body, UTF_8);
                     log.info("Message received to process " + message);
-                    Long queue = getQueue();
-                    log.info("Dispatching to queue " + queue);
+                    Long node = getQueue();
+                    log.info("Dispatching to queue " + node);
+                    incrementLoad(node);
+                    queueChannel.basicPublish("", nodeQueueProccesName + node,MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+                }
+            };
+            Consumer notificationConsumer = new DefaultConsumer(this.queueChannel) {
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    String node = new String(body, UTF_8);
+                    log.info("Notification from node " + node);
 
-                    queueChannel.basicPublish("", nodeQueueProccesName + queue,MessageProperties.PERSISTENT_TEXT_PLAIN, message.getBytes());
+                    decrementLoad(Long.valueOf(node));
                 }
             };
 
             log.info("consuming from queue");
             this.queueChannel.basicConsume(this.inputQueueName, true, consumer);
+            this.queueChannel.basicConsume(this.notificationQueueName, true, notificationConsumer);
 
 
         }
@@ -83,20 +96,29 @@ public class Dispatcher {
     }
 
     public Long getQueue(){
-        Long queue = 0L;
+
+        AtomicReference<Long> queue = new AtomicReference<>(0L);
 
         if(nodosActivos.isEmpty()){
 
-            Node node = new Node(nodeStatusQueueName + currentNode,nodeQueueProccesName+ currentNode, 20L);
 
+            queue.set(createNode().getNodeId());
 
-            node.start();
-            this.nodosActivos.add(currentNode.toString());
-            queue = currentNode;
-            currentNode++;
+        }else{
+
+            this.nodosActivos.forEach( n -> {
+                if (n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)){
+                    queue.set(n.getNodeId());
+                }
+            });
+            if(queue.get().equals(0L)){
+                queue.set(createNode().getNodeId());
+            }
+
         }
 
-        return queue;
+        log.warn(nodosActivos.toString());
+        return queue.get();
     }
 
     public static void main(String[] args) {
@@ -104,4 +126,56 @@ public class Dispatcher {
         d.startDispatcher();
     }
 
+    private void incrementLoad(Long id){
+
+        nodosActivos.forEach( n -> {
+            if(id.equals(n.getNodeId())){
+                n.setLoad( n.getLoad() + 1);
+                n.setEstado(updateStateQueue(n));
+            }
+        });
+
+    }
+
+
+    private void decrementLoad(Long id){
+
+        nodosActivos.forEach( n -> {
+            if( id.equals(n.getNodeId())){
+                n.setLoad( n.getLoad() - 1);
+                n.setEstado(updateStateQueue(n));
+            }
+        });
+
+
+    }
+
+    private Node createNode(){
+
+        Node node = new Node(currentNode , notificationQueueName,nodeQueueProccesName+ currentNode, 8L);
+        node.start();
+        this.nodosActivos.add(node);
+        currentNode++;
+
+        return node;
+
+    }
+
+    private Estado updateStateQueue(Node node){
+
+        Estado state;
+        log.info("LOAD " +node.getLoad());
+        if(node.getLoad() <= node.getMaxLoad() * 0.2){
+            state = IDLE;
+        }else if(node.getLoad() <= node.getMaxLoad() * 0.4){
+            state = NORMAL;
+        }else if(node.getLoad() <= node.getMaxLoad() * 0.7){
+            state = ALERT;
+        }else {
+            state = CRITICAL;
+        }
+
+        return state;
+
+    }
 }

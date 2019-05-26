@@ -6,23 +6,25 @@ import com.rabbitmq.client.MessageProperties;
 import com.sdpp.model.Message;
 import lombok.extern.slf4j.Slf4j;
 
-import java.io.IOException;
-
 /**
  * Usuario: Franco
  * Project: SDPP-TP-2
  * Fecha: 5/25/2019
  **/
 @Slf4j
-public class NodeThread implements Runnable {
+public class NodeThread extends Thread {
 
 
     private Channel channel;
     private Message message;
+    private String notificationQueueName;
+    private String currentNode;
 
-    public NodeThread(Channel channel, Message message) {
+    public NodeThread(Channel channel, Message message, String notificationQueueName,String currentNode) {
         this.channel = channel;
         this.message = message;
+        this.notificationQueueName = notificationQueueName;
+        this.currentNode = currentNode;
 
         this.TAG = "THREADNODE " + Thread.currentThread().getName() + " - ";
     }
@@ -34,6 +36,7 @@ public class NodeThread implements Runnable {
         try {
             log.info(TAG + "processing request ");
             String mString;
+
             switch (message.getOperation()) {
 
                 case DELETE :
@@ -70,9 +73,9 @@ public class NodeThread implements Runnable {
 
 
             }
-
+            this.channel.basicPublish("",notificationQueueName,MessageProperties.PERSISTENT_TEXT_PLAIN,currentNode.getBytes());
             log.info(TAG+ "Exiting thread");
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.warn(TAG + "Error while runing node threar ", e);
         }
     }
