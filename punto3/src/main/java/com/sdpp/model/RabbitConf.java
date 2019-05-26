@@ -31,7 +31,7 @@ public class RabbitConf {
         if(INSTANCE != null)
             return INSTANCE;
 
-        String filename = "rabbitmq-properties.json";//RabbitConf.class.getClassLoader().getResource("rabbitmq-properties.json").getFile();// "rabbitmq-properties.json";//
+        String filename =/* "rabbitmq-properties.json";// */RabbitConf.class.getClassLoader().getResource("rabbitmq-properties.json").getFile();// "rabbitmq-properties.json";//
         Gson gson = new Gson();
         JsonReader reader = null;
 

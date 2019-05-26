@@ -31,13 +31,15 @@ public class Dispatcher {
     private static Long currentNode = 1L;
     private String notificationQueueName = "notification";
     private String inputQueueName = "inputQueue";
-
     private List<Node> nodosActivos;
 
+    private StateLoadManager manager;
 
     public Dispatcher(){
         this.nodosActivos = new ArrayList<>();
         configureConnectionWRabbit();
+        this.manager = new StateLoadManager(this.nodosActivos,nodeQueueProccesName,this.queueChannel);
+        this.manager.start();
     }
 
     private void configureConnectionWRabbit(){
@@ -107,7 +109,7 @@ public class Dispatcher {
         }else{
 
             this.nodosActivos.forEach( n -> {
-                if (n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)){
+                if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()){
                     queue.set(n.getNodeId());
                 }
             });
@@ -129,7 +131,7 @@ public class Dispatcher {
     private void incrementLoad(Long id){
 
         nodosActivos.forEach( n -> {
-            if(id.equals(n.getNodeId())){
+            if(id.equals(n.getNodeId()) && n.getActive()){
                 n.setLoad( n.getLoad() + 1);
                 n.setEstado(updateStateQueue(n));
             }
@@ -141,7 +143,7 @@ public class Dispatcher {
     private void decrementLoad(Long id){
 
         nodosActivos.forEach( n -> {
-            if( id.equals(n.getNodeId())){
+            if( id.equals(n.getNodeId()) && n.getActive()){
                 n.setLoad( n.getLoad() - 1);
                 n.setEstado(updateStateQueue(n));
             }

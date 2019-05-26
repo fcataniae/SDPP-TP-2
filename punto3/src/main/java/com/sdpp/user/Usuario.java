@@ -46,7 +46,11 @@ public class Usuario {
     public static void main(String[] args) throws Exception {
        int i = 0;
         while(i< 200){
-            TrheadUser r = new TrheadUser(null);
+            Message m = new Message();
+
+            m.setOperation(DELETE);
+            m.setBody("Body");
+            TrheadUser r = new TrheadUser(m,8001L,"localhost");
 
             r.start();
 

@@ -9,6 +9,7 @@ import com.sdpp.nodes.hilos.NodeThread;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import static com.sdpp.model.Estado.*;
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -28,6 +29,36 @@ public class Node extends Thread{
     private RabbitConf conf;
     private Channel queueChannel;
     private Long load;
+    private Boolean active;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Node node = (Node) o;
+        return Objects.equals(nodeId, node.nodeId) &&
+                Objects.equals(notificationQueueName, node.notificationQueueName) &&
+                Objects.equals(nodeProccesQueueName, node.nodeProccesQueueName) &&
+                Objects.equals(conf, node.conf) &&
+                Objects.equals(queueChannel, node.queueChannel) &&
+                Objects.equals(load, node.load) &&
+                Objects.equals(active, node.active) &&
+                Objects.equals(maxLoad, node.maxLoad) &&
+                estado == node.estado;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nodeId, notificationQueueName, nodeProccesQueueName, conf, queueChannel, load, active, maxLoad, estado);
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
 
     public Long getNodeId() {
         return nodeId;
@@ -52,7 +83,7 @@ public class Node extends Thread{
         this.maxLoad = maxLoad;
         this.load = 0L;
         this.estado = IDLE;
-
+        this.active = Boolean.TRUE;
     }
 
 
