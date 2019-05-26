@@ -56,3 +56,4 @@ Aqui seleccionamos el metodo a utilizar y ingresamos un mensaje a enviar, tambie
 * Se agrego un pequeño sleep en el thread node para que se pueda observar el balanceo de carga
 * Lo metodos solo devuelven un mensaje distinto
   
+* para poder ejecutar el punto 1 y 3 desde el IDE se necesita instalar el plugin de lombok que se utiliza para el slf4j (https://projectlombok.org/setup/intellij para intellij idea) 
