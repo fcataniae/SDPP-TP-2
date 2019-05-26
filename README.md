@@ -38,7 +38,7 @@ si no se indica {puerto} se toma por defecto el 8000. Este quedara a la espera d
 
 sobre una terminal ejecutar el siguiente comando
 
-java -jar punto2.jar -P -h -h {host-server} -p {port-server}
+java -jar punto2.jar -P -h {host-server} -p {port-server}
 
 donde {host-server} es la ip donde se esta ejecutando el servidor y {port-server} es el puerto donde escucha el servidor.
 En esta interfaz tendremos dos opciones:
