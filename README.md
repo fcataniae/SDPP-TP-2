@@ -81,5 +81,22 @@ Aqui seleccionamos el metodo a utilizar y ingresamos un mensaje a enviar, tambie
 * Se agrego un pequeño sleep en el thread node para que se pueda observar el balanceo de carga
 * Lo metodos solo devuelven un mensaje distinto
   
-  
+## Ejecutar el punto4
+
+Se debe descargar la carpeta punto4 y luego importar, desde Eclipse, como “Existing Maven Proyects”.
+
+### para realizar el proceso centralizado
+
+Se debe ejecutar la clase Principal dentro del paquete centralizado.
+
+### para realizar el proceso distribuido.
+
+Se debe ejecutar en primer lugar la clase Server dentro del paquete servidor. Luego se debera ejecutar la clase Cliente dentro del paquete cliente.
+
+### para realizar el proceso distribuido mejorado.
+
+Se debe ejecutar en primer lugar la clase ServerM dentro del paquete servidorM. Luego se debera ejecutar la clase ClienteM dentro del paquete clienteM.
+
+
 ###### para poder visualizar correctamentes los puntos 1,2 y 3 desde el IDE se necesita instalar el plugin de lombok que se utiliza para el slf4j (https://projectlombok.org/setup/intellij para intellij idea) 
+
