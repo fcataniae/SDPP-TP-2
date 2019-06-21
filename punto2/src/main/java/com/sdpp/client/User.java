@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigDecimal;
+import java.net.ConnectException;
 import java.net.Socket;
 import java.util.Random;
 
@@ -70,37 +71,40 @@ public class User extends Thread {
             u.port = 8000L;
 
             u.start();
+
             i++;
         }
 
     }
 
-    public void makeTransaction() throws IOException, ClassNotFoundException {
-        Operation o = new Operation();
+    private void makeTransaction() throws IOException, ClassNotFoundException {
+        try {
+            Operation o = new Operation();
 
-        o.setMonto(monto);
-        o.setTransaction(t);
+            o.setMonto(monto);
+            o.setTransaction(t);
 
-        Socket s = new Socket(ip,port.intValue());
+            Socket s = new Socket(ip, port.intValue());
 
-        ObjectOutputStream os = new ObjectOutputStream(s.getOutputStream());
+            ObjectOutputStream os = new ObjectOutputStream(s.getOutputStream());
 
-        log.info("Sending operation: " + o.toString());
-        os.writeObject(o);
+            log.info("Sending operation: " + o.toString());
+            os.writeObject(o);
 
-        ObjectInputStream is = new ObjectInputStream(s.getInputStream());
+            ObjectInputStream is = new ObjectInputStream(s.getInputStream());
 
-        OperationResponse or = (OperationResponse) is.readObject();
-        log.info("Response for operation"+or.toString());
+            OperationResponse or = (OperationResponse) is.readObject();
+            log.info("Response for operation" + or.toString());
+        }catch (IOException e){
+            log.info("Error couldnt conect to server!");
+            throw new RuntimeException("Couldnt connect to server!", e);
+        }
     }
-
     @Override
     public void run(){
         try {
             makeTransaction();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }

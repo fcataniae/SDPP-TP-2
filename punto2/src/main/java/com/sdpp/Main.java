@@ -5,7 +5,11 @@ import com.sdpp.model.Transaction;
 import com.sdpp.procces.TransactionManager;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.IOException;
 import java.math.BigDecimal;
+import java.net.ConnectException;
+import java.net.Socket;
+import java.net.UnknownHostException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -68,7 +72,7 @@ public class Main {
             }
 
         }else{
-            throw new IllegalArgumentException("Debe indicarse -S para server o -D para dispatcher");
+            throw new IllegalArgumentException("Debe indicarse -S para server o -P para iniciar interfaz");
         }
     }
 
@@ -86,17 +90,19 @@ public class Main {
 
            if(op.matches("\\d*")){
 
-               switch (op){
-                   case "1":
-                       cargarPruebaAleatoria(ip,port);
-                       break;
-                   case "2":
-                       cargarPruebaUnitaria(ip,port);
-                       break;
-                   default:
-                       log.info("No se reconece la opcion seleccionada");
-                       break;
-               }
+
+                   switch (op) {
+                       case "1":
+                           cargarPruebaAleatoria(ip, port);
+                           break;
+                       case "2":
+                           cargarPruebaUnitaria(ip, port);
+                           break;
+                       default:
+                           log.info("No se reconece la opcion seleccionada");
+                           break;
+                   }
+
            }else{
                log.info("debe ingresar una opcion numerica!");
            }
@@ -123,16 +129,31 @@ public class Main {
         }
     }
 
+    private static boolean isServerOpen(){
+
+
+        try(Socket s = new Socket(ip,port.intValue()))
+        {
+            return true;
+        } catch (IOException e){
+            return false;
+        }
+
+    }
     private static void runOperation(Transaction t, BigDecimal monto){
 
         User u = new User();
 
-        u.setT(t);
-        u.setMonto(monto);
-        u.setIp(ip);
-        u.setPort(port);
+        if(isServerOpen()) {
 
-        u.start();
+            u.setT(t);
+            u.setMonto(monto);
+            u.setIp(ip);
+            u.setPort(port);
+            u.start();
+        }else{
+            throw new IllegalStateException("Server is not running!");
+        }
 
     }
     private static void cargarPruebaUnitaria(String ip, Long port) {
