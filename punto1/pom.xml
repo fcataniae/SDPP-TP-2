@@ -8,6 +8,7 @@
     <artifactId>punto-1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <build>
+
         <finalName>Punto1</finalName>
         <plugins>
             <plugin>

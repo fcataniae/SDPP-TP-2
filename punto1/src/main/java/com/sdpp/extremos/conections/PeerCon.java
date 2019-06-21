@@ -2,7 +2,7 @@ package com.sdpp.extremos.conections;
 
 import com.google.gson.Gson;
 import com.google.gson.stream.JsonReader;
-import com.sdpp.extremos.conections.utils.MasterWrapperper;
+import com.sdpp.extremos.conections.utils.MasterWrapper;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.FileNotFoundException;
@@ -25,7 +25,7 @@ public class PeerCon implements Runnable{
 
     public PeerCon(int serverPort, String sharedFolder) {
 
-        String filename = "masters.json";//getClass().getClassLoader().getResource("masters.json").getFile();
+        String filename = "masters.json";//getClass().getClassLoader().getResource("masters.json").getFile();//
         log.info(filename);
         JsonReader reader = null;
         try {

@@ -1,5 +1,7 @@
 package com.sdpp.utils;
 
+import com.sdpp.utils.model.Host;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,23 +9,14 @@ import java.util.List;
 public class WrapperList implements Serializable {
 
     private List<String> fileList;
-    private int serverPort;
-    private String serverIp;
+    private Host serverHost;
 
-    public int getServerPort() {
-        return serverPort;
+    public Host getServerHost() {
+        return serverHost;
     }
 
-    public void setServerPort(int serverPort) {
-        this.serverPort = serverPort;
-    }
-
-    public String getServerIp() {
-        return serverIp;
-    }
-
-    public void setServerIp(String serverIp) {
-        this.serverIp = serverIp;
+    public void setServerHost(Host serverHost) {
+        this.serverHost = serverHost;
     }
 
     public WrapperList() {
@@ -36,5 +29,13 @@ public class WrapperList implements Serializable {
 
     public void setFileList(List<String> fileList) {
         this.fileList = fileList;
+    }
+
+    @Override
+    public String toString() {
+        return "WrapperList{" +
+                "fileList=" + fileList +
+                ", serverHost=" + serverHost +
+                '}';
     }
 }

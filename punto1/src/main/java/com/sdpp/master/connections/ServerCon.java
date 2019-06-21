@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @Slf4j
@@ -17,10 +19,9 @@ public class ServerCon extends Thread  {
 
 
     private int port;
-    private Map<String, Host> archivoPeer;
+    private final Map<String, List<Host>> archivoPeer = new ConcurrentHashMap<>();
 
     public ServerCon(int port) {
-        this.archivoPeer = new HashMap<>();
         this.port = port;
     }
 
