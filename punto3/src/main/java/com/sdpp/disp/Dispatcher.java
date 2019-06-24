@@ -104,16 +104,18 @@ public class Dispatcher extends Thread{
 
         AtomicReference<Long> queue = new AtomicReference<>(0L);
 
-        if(nodosActivos.isEmpty()){
-            queue.set(createNode().getNodeId());
-        }else{
-            this.nodosActivos.forEach( n -> {
-                if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()){
-                    queue.set(n.getNodeId());
-                }
-            });
-            if(queue.get().equals(0L)){
+        synchronized (nodosActivos) {
+            if (nodosActivos.isEmpty()) {
                 queue.set(createNode().getNodeId());
+            } else {
+                this.nodosActivos.forEach(n -> {
+                    if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()) {
+                        queue.set(n.getNodeId());
+                    }
+                });
+                if (queue.get().equals(0L)) {
+                    queue.set(createNode().getNodeId());
+                }
             }
         }
         log.warn(nodosActivos.toString());
@@ -151,12 +153,13 @@ public class Dispatcher extends Thread{
     }
 
     private Node createNode(){
-
-        Node node = new Node(currentNode , notificationQueueName,nodeQueueProccesName+ currentNode, 8L);
-        node.start();
-        this.nodosActivos.add(node);
-        currentNode++;
-
+        Node node;
+        synchronized (nodosActivos) {
+            node = new Node(currentNode, notificationQueueName, nodeQueueProccesName + currentNode, 8L);
+            node.start();
+            this.nodosActivos.add(node);
+            currentNode++;
+        }
         return node;
 
     }
@@ -165,7 +168,7 @@ public class Dispatcher extends Thread{
 
         Estado state;
         log.info("LOAD " +node.getLoad());
-        if(node.getLoad() <= node.getMaxLoad() * 0.2){
+        if(node.getLoad() <= 0){
             state = IDLE;
         }else if(node.getLoad() <= node.getMaxLoad() * 0.4){
             state = NORMAL;
