@@ -42,7 +42,6 @@ public class ThreadServer implements Runnable {
     public void run() {
 
         try{
-            ObjectOutputStream outputChannel = new ObjectOutputStream (this.client.getOutputStream());
             ObjectInputStream inputChannel = new ObjectInputStream (this.client.getInputStream());
             Gson gson = new Gson();
 
@@ -52,6 +51,7 @@ public class ThreadServer implements Runnable {
             Consumer consumer = new DefaultConsumer(this.queueChannel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    ObjectOutputStream outputChannel = new ObjectOutputStream (client.getOutputStream());
                     String message = new String(body, UTF_8);
                     log.info("String message: " + message );
                     Message m = new Gson().fromJson(message, Message.class);

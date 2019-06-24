@@ -49,7 +49,7 @@ public class StateLoadManager extends Thread {
                         log.info("Deleting queue and node from nodelist");
 
                         iterator.remove();
-                        queueChannel.queueDelete(nodeQueue);
+                        node.delete();
 
                         log.info("Deleting succesfull for node " + node.getNodeId());
                     }

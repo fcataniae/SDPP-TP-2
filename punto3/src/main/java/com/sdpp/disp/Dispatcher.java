@@ -21,7 +21,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Fecha: 5/25/2019
  **/
 @Slf4j
-public class Dispatcher {
+public class Dispatcher extends Thread{
 
     private final RabbitConf conf = RabbitConf.getInstance();
 
@@ -59,7 +59,10 @@ public class Dispatcher {
         }
     }
 
-
+    @Override
+    public void run(){
+        startDispatcher();
+    }
     public void startDispatcher(){
 
         try{
@@ -90,7 +93,7 @@ public class Dispatcher {
             this.queueChannel.basicConsume(this.inputQueueName, true, consumer);
             this.queueChannel.basicConsume(this.notificationQueueName, true, notificationConsumer);
 
-
+            while(true){}
         }
         catch (Exception e){
             log.warn("Error while running dispatcher", e );
@@ -102,12 +105,8 @@ public class Dispatcher {
         AtomicReference<Long> queue = new AtomicReference<>(0L);
 
         if(nodosActivos.isEmpty()){
-
-
             queue.set(createNode().getNodeId());
-
         }else{
-
             this.nodosActivos.forEach( n -> {
                 if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()){
                     queue.set(n.getNodeId());
@@ -116,16 +115,14 @@ public class Dispatcher {
             if(queue.get().equals(0L)){
                 queue.set(createNode().getNodeId());
             }
-
         }
-
         log.warn(nodosActivos.toString());
         return queue.get();
     }
 
     public static void main(String[] args) {
         Dispatcher d = new Dispatcher();
-        d.startDispatcher();
+        d.start();
     }
 
     private void incrementLoad(Long id){
