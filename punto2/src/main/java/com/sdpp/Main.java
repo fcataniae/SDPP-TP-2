@@ -78,7 +78,8 @@ public class Main {
 
     private static void generateUserInterfaz(String ip, Long port) {
 
-        log.info("ctrl + c para finalizar");
+        if(!isServerOpen()) throw new IllegalStateException("Server is not running!");
+       log.info("ctrl + c para finalizar");
        while(true) {
            log.info("Operacion a realizar ");
            log.info("1 - N transacciones aleatorias");
@@ -144,16 +145,12 @@ public class Main {
 
         User u = new User();
 
-        if(isServerOpen()) {
 
-            u.setT(t);
-            u.setMonto(monto);
-            u.setIp(ip);
-            u.setPort(port);
-            u.start();
-        }else{
-            throw new IllegalStateException("Server is not running!");
-        }
+        u.setT(t);
+        u.setMonto(monto);
+        u.setIp(ip);
+        u.setPort(port);
+        u.start();
 
     }
     private static void cargarPruebaUnitaria(String ip, Long port) {
