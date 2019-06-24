@@ -31,7 +31,7 @@ public class Dispatcher extends Thread{
     private static Long currentNode = 1L;
     private String notificationQueueName = "notification";
     private String inputQueueName = "inputQueue";
-    private List<Node> nodosActivos;
+    private final List<Node> nodosActivos;
 
     private StateLoadManager manager;
 
@@ -125,28 +125,29 @@ public class Dispatcher extends Thread{
         d.start();
     }
 
-    private void incrementLoad(Long id){
+    private void incrementLoad(Long id) {
 
-        nodosActivos.forEach( n -> {
-            if(id.equals(n.getNodeId()) && n.getActive()){
-                n.setLoad( n.getLoad() + 1);
-                n.setEstado(updateStateQueue(n));
-            }
-        });
-
+        synchronized (nodosActivos) {
+            nodosActivos.forEach(n -> {
+                if (id.equals(n.getNodeId()) && n.getActive()) {
+                    n.setLoad(n.getLoad() + 1);
+                    n.setEstado(updateStateQueue(n));
+                }
+            });
+        }
     }
 
 
     private void decrementLoad(Long id){
+        synchronized (nodosActivos) {
 
-        nodosActivos.forEach( n -> {
-            if( id.equals(n.getNodeId()) && n.getActive()){
-                n.setLoad( n.getLoad() - 1);
-                n.setEstado(updateStateQueue(n));
-            }
-        });
-
-
+            nodosActivos.forEach(n -> {
+                if (id.equals(n.getNodeId()) && n.getActive()) {
+                    n.setLoad(n.getLoad() - 1);
+                    n.setEstado(updateStateQueue(n));
+                }
+            });
+        }
     }
 
     private Node createNode(){

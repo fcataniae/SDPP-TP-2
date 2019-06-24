@@ -17,7 +17,7 @@ import static com.sdpp.model.Estado.IDLE;
 @Slf4j
 public class StateLoadManager extends Thread {
 
-    private List<Node> nodosActivos;
+    private final List<Node> nodosActivos;
     private String nodeQueueProccesName ;
     private Channel queueChannel;
 
@@ -33,32 +33,34 @@ public class StateLoadManager extends Thread {
 
         while(true){
             try {
-                log.info("Quantity of nodes actives " + nodosActivos.size());
+                synchronized (nodosActivos) {
 
-                log.info("Searching for idle node...");
-                Iterator iterator = nodosActivos.iterator();
-                while(iterator.hasNext()){
-                    Node node = (Node) iterator.next();
-                    if (node.getEstado().equals(IDLE) && node.getLoad().equals(0L)) {
+                    log.info("Quantity of nodes actives " + nodosActivos.size());
 
-                        String nodeQueue = nodeQueueProccesName + node.getNodeId();
-                        log.info("IDLE node found - node queue: " + nodeQueue);
+                    log.info("Searching for idle node...");
+                    Iterator iterator = nodosActivos.iterator();
+                    while (iterator.hasNext()) {
+                        Node node = (Node) iterator.next();
+                        if (node.getEstado().equals(IDLE) && node.getLoad().equals(0L)) {
 
-                        node.setActive(Boolean.FALSE);
+                            String nodeQueue = nodeQueueProccesName + node.getNodeId();
+                            log.info("IDLE node found - node queue: " + nodeQueue);
 
-                        log.info("Deleting queue and node from nodelist");
+                            node.setActive(Boolean.FALSE);
 
-                        iterator.remove();
-                        node.delete();
+                            log.info("Deleting queue and node from nodelist");
 
-                        log.info("Deleting succesfull for node " + node.getNodeId());
+                            iterator.remove();
+                            node.delete();
+
+                            log.info("Deleting succesfull for node " + node.getNodeId());
+                        }
                     }
+                    log.info("Searching in node list done");
+
+                    log.info("Sleeping thread for 10000 millis");
                 }
-                log.info("Searching in node list done");
-
-                log.info("Sleeping thread for 10000 millis");
                 Thread.sleep(10000);
-
             }catch (Exception e ){
                 log.error("Error while deleting queue for IDLE node ", e);
             }

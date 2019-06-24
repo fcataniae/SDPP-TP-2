@@ -31,7 +31,7 @@ public class Usuario {
 
     public static void main(String[] args) throws Exception {
        int i = 0;
-        while(i< 5){
+        while(i< 50){
             Message m = new Message();
 
             m.setOperation(DELETE);
@@ -100,7 +100,7 @@ public class Usuario {
     private void sendXTimes(Message m, Long veces){
 
         int i= 0;
-        ExecutorService executor = Executors.newFixedThreadPool(10);
+        ExecutorService executor = Executors.newFixedThreadPool(50);
         while(i < veces){
             TrheadUser t = new TrheadUser(m,this.port,this.ip);
             executor.execute(t);
