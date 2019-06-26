@@ -179,5 +179,10 @@ public class Node extends Thread{
     }
 
 
-
+    public void delete() {
+        try {
+            this.queueChannel.queueDelete(this.nodeProccesQueueName);
+        } catch (IOException e) {
+        }
+    }
 }

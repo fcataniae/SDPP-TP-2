@@ -1,15 +1,17 @@
 package com.sdpp.server.hilo;
 
 import com.google.gson.Gson;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.DeliverCallback;
-import com.rabbitmq.client.MessageProperties;
+import com.rabbitmq.client.*;
 import com.sdpp.model.Message;
 import lombok.extern.slf4j.Slf4j;
 
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
 
@@ -40,22 +42,28 @@ public class ThreadServer implements Runnable {
     public void run() {
 
         try{
-            ObjectOutputStream outputChannel = new ObjectOutputStream (this.client.getOutputStream());
             ObjectInputStream inputChannel = new ObjectInputStream (this.client.getInputStream());
             Gson gson = new Gson();
 
 
             this.queueChannel.queueDeclare(id.toString(), false, false, true, null);
 
-            DeliverCallback consumer = (consumerTag, delivery) -> {
+            Consumer consumer = new DefaultConsumer(this.queueChannel) {
+                @Override
+                public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+                    ObjectOutputStream outputChannel = new ObjectOutputStream (client.getOutputStream());
+                    String message = new String(body, UTF_8);
+                    log.info("String message: " + message );
+                    Message m = new Gson().fromJson(message, Message.class);
+                    log.info(TAG + "sending message " + message);
+                    outputChannel.writeObject(m);
+                    log.info(TAG + "Message sent.");
+                    log.info("DELETING QUEUE");
+                    queueChannel.queueDeclare("MensajeRecibido "+id.toString(), false, false, true, null);
+                    queueChannel.basicPublish("", "MensajeRecibido "+id.toString(), MessageProperties.PERSISTENT_TEXT_PLAIN, (m.getBody().toString() + new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date())).getBytes());
+                    queueChannel.queueDelete(id.toString());
 
-                String message = new String(delivery.getBody(), UTF_8);
-                Message m = new Gson().fromJson(message, Message.class);
-                log.info(TAG + "sending message " + message);
-                outputChannel.writeObject(m);
-                log.info(TAG + "Message sent.");
-                this.queueChannel.queueDelete(id.toString());
-
+                }
             };
 
             Message decodedMsg = (Message) inputChannel.readObject();
@@ -66,7 +74,7 @@ public class ThreadServer implements Runnable {
             this.queueChannel.basicPublish("", this.inputQueueName, MessageProperties.PERSISTENT_TEXT_PLAIN, mString.getBytes());
             log.info(TAG + "Message published");
 
-            this.queueChannel.basicConsume(id.toString(),true,consumer,  consumerTag -> { });
+            this.queueChannel.basicConsume(id.toString(),false,consumer);
 
             //borro la cola que cree momentaneamente
             log.info(TAG + "Stopping thread.");

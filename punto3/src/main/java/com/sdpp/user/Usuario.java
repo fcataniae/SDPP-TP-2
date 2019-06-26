@@ -7,6 +7,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import static com.sdpp.model.Operation.*;
 
@@ -27,25 +29,9 @@ public class Usuario {
         this.ip = ip;
     }
 
-    public Long getPort() {
-        return port;
-    }
-
-    public void setPort(Long port) {
-        this.port = port;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip;
-    }
-
     public static void main(String[] args) throws Exception {
        int i = 0;
-        while(i< 200){
+        while(i< 50){
             Message m = new Message();
 
             m.setOperation(DELETE);
@@ -114,9 +100,10 @@ public class Usuario {
     private void sendXTimes(Message m, Long veces){
 
         int i= 0;
-        TrheadUser t = new TrheadUser(m,this.port,this.ip);
+        ExecutorService executor = Executors.newFixedThreadPool(50);
         while(i < veces){
-            t.run();
+            TrheadUser t = new TrheadUser(m,this.port,this.ip);
+            executor.execute(t);
             i++;
         }
     }

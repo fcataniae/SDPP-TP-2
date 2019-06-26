@@ -19,7 +19,7 @@ public class Main {
 
 
         if(args.length > 0){
-            if(args[0].equals("-S")){
+            if(args[0].equals("-B")){
 
                 int port = 8000; //default port
 
@@ -32,20 +32,20 @@ public class Main {
                 }else{
                     log.info("No se indico el parametro -p por lo que se tomara por defecto el puerto " + port) ;
                 }
-                log.info("Iniciando Server en puerto " + port);
+                log.info("Iniciando balancer en puerto " + port);
 
                 Server sc = new Server(port);
 
                 sc.startServer();
                 log.info("Desconectando servidor...");
 
-            }else if(args[0].equals("-D")){
-                log.info("iniciando Dispatcher..");
+            }else if(args[0].equals("-S")){
+                log.info("iniciando Servidor..");
 
                 Dispatcher d = new Dispatcher();
 
-                d.startDispatcher();
-                log.info("Desconectando dispatcher...");
+                d.start();
+                log.info("Desconectando servidor...");
             }else if(args[0].equals("-U")){
 
                 Long port = 0L;

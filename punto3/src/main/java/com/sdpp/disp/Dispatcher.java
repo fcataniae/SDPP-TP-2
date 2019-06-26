@@ -21,7 +21,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * Fecha: 5/25/2019
  **/
 @Slf4j
-public class Dispatcher {
+public class Dispatcher extends Thread{
 
     private final RabbitConf conf = RabbitConf.getInstance();
 
@@ -31,7 +31,7 @@ public class Dispatcher {
     private static Long currentNode = 1L;
     private String notificationQueueName = "notification";
     private String inputQueueName = "inputQueue";
-    private List<Node> nodosActivos;
+    private final List<Node> nodosActivos;
 
     private StateLoadManager manager;
 
@@ -59,7 +59,10 @@ public class Dispatcher {
         }
     }
 
-
+    @Override
+    public void run(){
+        startDispatcher();
+    }
     public void startDispatcher(){
 
         try{
@@ -90,7 +93,7 @@ public class Dispatcher {
             this.queueChannel.basicConsume(this.inputQueueName, true, consumer);
             this.queueChannel.basicConsume(this.notificationQueueName, true, notificationConsumer);
 
-
+            while(true){}
         }
         catch (Exception e){
             log.warn("Error while running dispatcher", e );
@@ -101,64 +104,62 @@ public class Dispatcher {
 
         AtomicReference<Long> queue = new AtomicReference<>(0L);
 
-        if(nodosActivos.isEmpty()){
-
-
-            queue.set(createNode().getNodeId());
-
-        }else{
-
-            this.nodosActivos.forEach( n -> {
-                if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()){
-                    queue.set(n.getNodeId());
-                }
-            });
-            if(queue.get().equals(0L)){
+        synchronized (nodosActivos) {
+            if (nodosActivos.isEmpty()) {
                 queue.set(createNode().getNodeId());
+            } else {
+                this.nodosActivos.forEach(n -> {
+                    if ((n.getEstado().equals(IDLE) || n.getEstado().equals(NORMAL)) && n.getActive()) {
+                        queue.set(n.getNodeId());
+                    }
+                });
+                if (queue.get().equals(0L)) {
+                    queue.set(createNode().getNodeId());
+                }
             }
-
         }
-
         log.warn(nodosActivos.toString());
         return queue.get();
     }
 
     public static void main(String[] args) {
         Dispatcher d = new Dispatcher();
-        d.startDispatcher();
+        d.start();
     }
 
-    private void incrementLoad(Long id){
+    private void incrementLoad(Long id) {
 
-        nodosActivos.forEach( n -> {
-            if(id.equals(n.getNodeId()) && n.getActive()){
-                n.setLoad( n.getLoad() + 1);
-                n.setEstado(updateStateQueue(n));
-            }
-        });
-
+        synchronized (nodosActivos) {
+            nodosActivos.forEach(n -> {
+                if (id.equals(n.getNodeId()) && n.getActive()) {
+                    n.setLoad(n.getLoad() + 1);
+                    n.setEstado(updateStateQueue(n));
+                }
+            });
+        }
     }
 
 
     private void decrementLoad(Long id){
+        synchronized (nodosActivos) {
 
-        nodosActivos.forEach( n -> {
-            if( id.equals(n.getNodeId()) && n.getActive()){
-                n.setLoad( n.getLoad() - 1);
-                n.setEstado(updateStateQueue(n));
-            }
-        });
-
-
+            nodosActivos.forEach(n -> {
+                if (id.equals(n.getNodeId()) && n.getActive()) {
+                    n.setLoad(n.getLoad() - 1);
+                    n.setEstado(updateStateQueue(n));
+                }
+            });
+        }
     }
 
     private Node createNode(){
-
-        Node node = new Node(currentNode , notificationQueueName,nodeQueueProccesName+ currentNode, 8L);
-        node.start();
-        this.nodosActivos.add(node);
-        currentNode++;
-
+        Node node;
+        synchronized (nodosActivos) {
+            node = new Node(currentNode, notificationQueueName, nodeQueueProccesName + currentNode, 8L);
+            node.start();
+            this.nodosActivos.add(node);
+            currentNode++;
+        }
         return node;
 
     }
@@ -167,7 +168,7 @@ public class Dispatcher {
 
         Estado state;
         log.info("LOAD " +node.getLoad());
-        if(node.getLoad() <= node.getMaxLoad() * 0.2){
+        if(node.getLoad() <= 0){
             state = IDLE;
         }else if(node.getLoad() <= node.getMaxLoad() * 0.4){
             state = NORMAL;
