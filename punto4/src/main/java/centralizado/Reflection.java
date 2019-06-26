@@ -93,16 +93,21 @@ public class Reflection {
     public int[][] ScaleDown(double[][] paddedImg, int x_size, int y_size,int size) {
         
         int height=paddedImg.length-y_size+1;
-        int width=paddedImg[0].length-x_size+1;
+       
+        int width=paddedImg.length-x_size+1;
+       
         
         int half_y=y_size/2;
         int half_x=x_size/2;
         
-        int[][] scaledDownImg = new int[height][width];
         
-        for(int i=0; i<size; i++) {
-            for(int j=0; j<size; j++) {                                
-                scaledDownImg[i][j] = (int) paddedImg[half_y+i][half_x+j];
+        int[][] scaledDownImg = new int[height][width];
+       
+        for(int i=0; i<height; i++) {
+            for(int j=0; j<width; j++) {
+            	// System.out.println("scale down"+scaledDownImg[i][j]);
+                scaledDownImg[i][j] = (int) paddedImg[half_y+i][ half_x+j];
+             //   System.out.println("scale down"+scaledDownImg[i][j]);
             }
         }
         

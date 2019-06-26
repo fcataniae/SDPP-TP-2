@@ -67,7 +67,7 @@ public class Sobel {
         try {
             File infile = new File(filename);
             BufferedImage bi = ImageIO.read(infile);
-
+           
             int red[][] = new int[bi.getHeight()][bi.getWidth()];
             int grn[][] = new int[bi.getHeight()][bi.getWidth()];
             int blu[][] = new int[bi.getHeight()][bi.getWidth()];

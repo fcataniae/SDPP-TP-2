@@ -11,7 +11,8 @@ public class ServerImplementaM implements IRemoteM{
 		// TODO Auto-generated method stub
 		 Random r = new Random();
 		 int prob = Math.abs(r.nextInt()) % 11;
-		 if (prob == 10) {
+		 
+		 if (prob == 9) {
 			 try {
 				Thread.sleep(5000);
 				System.out.println("inactivo "+nImagen);
@@ -20,6 +21,7 @@ public class ServerImplementaM implements IRemoteM{
 				e.printStackTrace();
 			}
 		 }else {
+		 System.out.println("activo");
 		SobelMain Sobel = new SobelMain(nImagen,tamaño);}
 	}
 }
